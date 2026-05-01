@@ -964,25 +964,6 @@ textarea:focus {
   background: var(--color-surface);
 }
 
-.blackout-section {
-  background: var(--color-surface);
-}
-
-.blackout-frame-shell {
-  overflow: hidden;
-  border: 1px solid rgba(16, 40, 68, 0.1);
-  border-radius: var(--radius-card);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-card);
-}
-
-.blackout-frame {
-  display: block;
-  width: 100%;
-  min-height: 760px;
-  border: 0;
-}
-
 .inquiries-section {
   background: var(--color-bg);
 }
