@@ -312,6 +312,7 @@ section {
   gap: 16px;
   width: min(100%, 360px);
   margin-left: auto;
+  transform: translateY(-48px);
 }
 
 .hero-copy h1 {
@@ -1308,6 +1309,7 @@ address a {
     justify-items: start;
     width: min(100%, 620px);
     margin-left: 0;
+    transform: none;
   }
 
   .hero-copy,
