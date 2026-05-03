@@ -14,7 +14,7 @@
   --radius-card: 24px;
   --radius-md: 12px;
   --container: 1320px;
-  --header-height: 92px;
+  --header-height: 112px;
 }
 
 * {
@@ -137,9 +137,9 @@ section {
 }
 
 .brand-logo {
-  height: 102px;
+  height: min(96px, calc(var(--header-height) - 16px));
   width: auto;
-  max-width: 420px;
+  max-width: 380px;
   object-fit: contain;
 }
 
@@ -1425,7 +1425,7 @@ address a {
 
 @media (max-width: 900px) {
   :root {
-    --header-height: 80px;
+    --header-height: 90px;
   }
 
   html {
@@ -1510,12 +1510,12 @@ address a {
   }
 
   .brand-logo {
-    height: 78px;
+    height: 72px;
   }
 
   .site-header .brand-logo,
   .footer-brand .brand-logo {
-    height: 78px;
+    height: 72px;
     max-width: 260px;
   }
 
@@ -1643,7 +1643,7 @@ address a {
 
 @media (max-width: 480px) {
   :root {
-    --header-height: 74px;
+    --header-height: 84px;
   }
 
   .container {
