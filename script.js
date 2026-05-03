@@ -7,6 +7,7 @@ const roomRates = {
 
 const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/fe3be99e-0d2a-4405-895b-75d6475603a5";
 const QUICK_BOOKING_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/eabceb79-b9d8-4ace-8b22-588fd2cdffa4";
+const HERO_VIDEO_URL = "https://killerplayer.com/watch/video/4c544c8a-f1a1-4965-bf84-5bda1e6a5bc1";
 let quickBookingFlipTimer;
 let contactFlipTimer;
 
@@ -19,6 +20,10 @@ const selectors = {
   contactForm: document.getElementById("contactForm"),
   contactStatus: document.getElementById("contactStatus"),
   contactSuccessHeading: document.getElementById("contactSuccessHeading"),
+  heroVideoOpen: document.getElementById("heroVideoOpen"),
+  heroVideoModal: document.getElementById("heroVideoModal"),
+  heroVideoClose: document.getElementById("heroVideoClose"),
+  heroVideoFrame: document.getElementById("heroVideoFrame"),
   lightbox: document.getElementById("lightbox"),
   lightboxImage: document.getElementById("lightboxImage"),
   lightboxClose: document.getElementById("lightboxClose")
@@ -32,6 +37,7 @@ function init() {
   setupQuickBooking();
   setupContactForm();
   setupGallery();
+  setupHeroVideo();
   setupRevealObserver();
 }
 
@@ -336,6 +342,35 @@ function closeLightbox() {
   selectors.lightbox.setAttribute("aria-hidden", "true");
   selectors.lightboxImage.src = "";
   selectors.lightboxImage.alt = "";
+}
+
+function setupHeroVideo() {
+  selectors.heroVideoOpen?.addEventListener("click", openHeroVideo);
+  selectors.heroVideoClose?.addEventListener("click", closeHeroVideo);
+  selectors.heroVideoModal?.addEventListener("click", (event) => {
+    if (event.target === selectors.heroVideoModal) closeHeroVideo();
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeHeroVideo();
+  });
+}
+
+function openHeroVideo() {
+  if (!selectors.heroVideoModal || !selectors.heroVideoFrame) return;
+
+  selectors.heroVideoFrame.innerHTML = `<iframe src="${HERO_VIDEO_URL}" allow="autoplay; gyroscope; picture-in-picture;" allowfullscreen title="Capeway Inn video"></iframe>`;
+  selectors.heroVideoModal.classList.add("active");
+  selectors.heroVideoModal.setAttribute("aria-hidden", "false");
+  selectors.heroVideoClose?.focus();
+}
+
+function closeHeroVideo() {
+  if (!selectors.heroVideoModal || !selectors.heroVideoFrame) return;
+
+  selectors.heroVideoModal.classList.remove("active");
+  selectors.heroVideoModal.setAttribute("aria-hidden", "true");
+  selectors.heroVideoFrame.innerHTML = "";
 }
 
 function setupRevealObserver() {

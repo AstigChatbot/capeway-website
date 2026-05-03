@@ -62,6 +62,10 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#reservation-request">Request a Reservation</a>
+            <button class="btn btn-video" id="heroVideoOpen" type="button" aria-haspopup="dialog">
+              <span class="play-icon" aria-hidden="true"></span>
+              Watch Video
+            </button>
             <a class="btn btn-secondary" href="#rooms">View Rooms</a>
           </div>
 
@@ -660,6 +664,11 @@
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">&times;</button>
     <img id="lightboxImage" src="" alt="" />
+  </div>
+
+  <div class="video-modal" id="heroVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Capeway Inn video">
+    <button class="video-modal-close" id="heroVideoClose" type="button" aria-label="Close video">&times;</button>
+    <div class="video-modal-frame" id="heroVideoFrame"></div>
   </div>
 
   <script src="script.js"></script>
