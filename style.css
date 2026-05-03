@@ -275,10 +275,7 @@ section {
 .hero-content {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(380px, 0.7fr);
-  gap: 44px;
-  align-items: center;
+  display: block;
 }
 
 .hero-copy h1 {
@@ -588,6 +585,25 @@ textarea:focus {
 .details-copy p,
 .contact-card p {
   font-size: 1rem;
+}
+
+.booking-section {
+  background: var(--color-surface-alt);
+  scroll-margin-top: var(--header-height);
+}
+
+.booking-section-layout {
+  display: grid;
+  gap: 34px;
+}
+
+.booking-section-heading {
+  margin-bottom: 0;
+}
+
+.booking-section .booking-card {
+  width: min(100%, 780px);
+  margin: 0 auto;
 }
 
 .about-section {
