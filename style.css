@@ -299,7 +299,7 @@ section {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(330px, 0.72fr);
   gap: 44px;
-  align-items: end;
+  align-items: start;
 }
 
 .hero-copy {
@@ -311,8 +311,8 @@ section {
   justify-items: end;
   gap: 16px;
   width: min(100%, 360px);
+  padding-top: 92px;
   margin-left: auto;
-  transform: translateY(-48px);
 }
 
 .hero-copy h1 {
@@ -1308,8 +1308,8 @@ address a {
   .hero-side {
     justify-items: start;
     width: min(100%, 620px);
+    padding-top: 0;
     margin-left: 0;
-    transform: none;
   }
 
   .hero-copy,
