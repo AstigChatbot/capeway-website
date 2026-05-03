@@ -343,7 +343,7 @@ section {
   display: grid;
   grid-template-columns: 1fr;
   gap: 12px;
-  width: 100%;
+  width: min(100%, 270px);
 }
 
 .hero-highlights div {
@@ -1308,10 +1308,6 @@ address a {
     justify-items: start;
     width: min(100%, 620px);
     margin-left: 0;
-  }
-
-  .hero-highlights {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .hero-copy,
