@@ -137,7 +137,7 @@ section {
 }
 
 .brand-logo {
-  height: 92px;
+  height: 102px;
   width: auto;
   max-width: 420px;
   object-fit: contain;
@@ -1252,7 +1252,7 @@ address a {
 }
 
 .footer-brand .brand-logo {
-  height: 104px;
+  height: 114px;
   max-width: 460px;
 }
 
@@ -1510,12 +1510,12 @@ address a {
   }
 
   .brand-logo {
-    height: 68px;
+    height: 78px;
   }
 
   .site-header .brand-logo,
   .footer-brand .brand-logo {
-    height: 68px;
+    height: 78px;
     max-width: 260px;
   }
 
