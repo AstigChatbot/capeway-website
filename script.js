@@ -38,6 +38,7 @@ function init() {
   setupContactForm();
   setupGallery();
   setupHeroVideo();
+  setupFaq();
   setupRevealObserver();
 }
 
@@ -79,6 +80,27 @@ function setupNavigation() {
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 900) setMenuState(false);
+  });
+}
+
+function setupFaq() {
+  document.querySelectorAll(".faq-item").forEach((item) => {
+    const button = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+    if (!button || !answer) return;
+
+    const sync = () => {
+      answer.style.maxHeight = item.classList.contains("open") ? `${answer.scrollHeight}px` : "0px";
+    };
+
+    button.addEventListener("click", () => {
+      const isOpen = item.classList.toggle("open");
+      button.setAttribute("aria-expanded", String(isOpen));
+      sync();
+    });
+
+    sync();
+    window.addEventListener("resize", sync, { passive: true });
   });
 }
 
