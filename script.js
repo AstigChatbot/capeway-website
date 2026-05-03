@@ -94,8 +94,16 @@ function setupFaq() {
     };
 
     button.addEventListener("click", () => {
-      const isOpen = item.classList.toggle("open");
-      button.setAttribute("aria-expanded", String(isOpen));
+      const shouldOpen = !item.classList.contains("open");
+      document.querySelectorAll(".faq-item.open").forEach((openItem) => {
+        if (openItem === item) return;
+        openItem.classList.remove("open");
+        openItem.querySelector(".faq-question")?.setAttribute("aria-expanded", "false");
+        const openAnswer = openItem.querySelector(".faq-answer");
+        if (openAnswer) openAnswer.style.maxHeight = "0px";
+      });
+      item.classList.toggle("open", shouldOpen);
+      button.setAttribute("aria-expanded", String(shouldOpen));
       sync();
     });
 
