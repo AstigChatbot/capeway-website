@@ -309,7 +309,9 @@ section {
 .hero-side {
   display: grid;
   justify-items: end;
-  gap: 24px;
+  gap: 16px;
+  width: min(100%, 360px);
+  margin-left: auto;
 }
 
 .hero-copy h1 {
@@ -327,17 +329,21 @@ section {
 }
 
 .hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-  gap: 14px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  width: 100%;
+}
+
+.hero-actions .btn {
+  width: 100%;
 }
 
 .hero-highlights {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 14px;
-  width: min(100%, 330px);
+  gap: 12px;
+  width: 100%;
 }
 
 .hero-highlights div {
@@ -1300,15 +1306,12 @@ address a {
 
   .hero-side {
     justify-items: start;
-  }
-
-  .hero-actions {
-    justify-content: flex-start;
+    width: min(100%, 620px);
+    margin-left: 0;
   }
 
   .hero-highlights {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: min(100%, 620px);
   }
 
   .hero-copy,
@@ -1498,11 +1501,14 @@ address a {
     gap: 12px;
   }
 
-  .hero-actions .btn,
   .room-body .btn,
   .news-body a,
   .footer-grid .btn {
     width: 100%;
+  }
+
+  .hero-highlights {
+    grid-template-columns: 1fr;
   }
 
   .hero-highlights div,
