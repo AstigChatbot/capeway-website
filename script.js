@@ -5,7 +5,7 @@ const roomRates = {
   extended: { name: "Extended Stay Suite", rate: 169 }
 };
 
-const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/fe3be99e-0d2a-4405-895b-75d6475603a5";
+const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook-test/6b7482c4-1562-4069-86e6-68638fa1fd7c";
 const QUICK_BOOKING_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/eabceb79-b9d8-4ace-8b22-588fd2cdffa4";
 const HERO_VIDEO_URL = "https://killerplayer.com/watch/video/4c544c8a-f1a1-4965-bf84-5bda1e6a5bc1";
 let quickBookingFlipTimer;
