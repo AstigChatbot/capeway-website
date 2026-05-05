@@ -147,8 +147,8 @@ section {
   margin-left: auto;
   display: flex;
   align-items: center;
-  gap: 24px;
-  font-size: 0.94rem;
+  gap: 22px;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--color-ink);
 }
