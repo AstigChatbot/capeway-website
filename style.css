@@ -706,6 +706,11 @@ textarea:focus {
   font-size: clamp(2.8rem, 5vw, 4rem);
 }
 
+.contact-card h2 {
+  white-space: nowrap;
+  font-size: clamp(2.5rem, 3.7vw, 3.6rem);
+}
+
 .feature-points,
 .details-specs {
   display: grid;
@@ -1571,6 +1576,11 @@ address a {
   .reservation-intro h2,
   .contact-card h2 {
     font-size: clamp(2.5rem, 12vw, 3.6rem);
+  }
+
+  .contact-card h2 {
+    white-space: normal;
+    font-size: clamp(2.4rem, 10vw, 3.1rem);
   }
 
   .reservation-form,
