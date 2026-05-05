@@ -1255,6 +1255,8 @@ address a {
   height: 114px;
   width: min(520px, 100%);
   max-width: 100%;
+  opacity: 1;
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.28));
 }
 
 .site-footer h2 {
