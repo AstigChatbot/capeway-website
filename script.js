@@ -211,15 +211,17 @@ function setupQuickBooking() {
     }
 
     try {
-      const webhookUrl = new URL(QUICK_BOOKING_WEBHOOK_URL);
-      Object.entries(payload).forEach(([key, value]) => {
-        webhookUrl.searchParams.set(key, String(value));
-      });
-      webhookUrl.searchParams.set("requestId", crypto.randomUUID());
+      const requestPayload = {
+        ...payload,
+        requestId: crypto.randomUUID()
+      };
 
-      const response = await fetch(webhookUrl.toString(), {
-        method: "GET",
-        cache: "no-store"
+      const response = await fetch(QUICK_BOOKING_WEBHOOK_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(requestPayload)
       });
 
       if (!response.ok) {
