@@ -29,6 +29,18 @@ const selectors = {
   lightboxClose: document.getElementById("lightboxClose")
 };
 
+function setContactSuccessHeading(greeting) {
+  selectors.contactSuccessHeading.replaceChildren();
+
+  const greetingLine = document.createElement("span");
+  greetingLine.textContent = greeting;
+
+  const messageLine = document.createElement("span");
+  messageLine.textContent = "appreciate you reaching out!";
+
+  selectors.contactSuccessHeading.append(greetingLine, messageLine);
+}
+
 function init() {
   document.getElementById("year").textContent = new Date().getFullYear();
   setDateMinimums();
@@ -311,14 +323,14 @@ function setupContactForm() {
       }
 
       selectors.contactStatus.textContent = "";
-      selectors.contactSuccessHeading.textContent = `Hey ${firstName}, Appreciate you reaching out!`;
+      setContactSuccessHeading(`Hey ${firstName},`);
       selectors.contactForm.classList.add("is-flipped");
       clearTimeout(contactFlipTimer);
       contactFlipTimer = window.setTimeout(() => {
         selectors.contactForm.reset();
         clearErrors(selectors.contactForm);
         selectors.contactStatus.textContent = "";
-        selectors.contactSuccessHeading.textContent = "Hey there, Appreciate you reaching out!";
+        setContactSuccessHeading("Hey there,");
         selectors.contactForm.classList.remove("is-flipped");
       }, 8000);
     } catch (error) {

@@ -494,21 +494,33 @@ section {
 }
 
 .contact-success {
-  max-width: 420px;
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  max-width: 480px;
+  padding: 20px;
 }
 
 .contact-success .eyebrow {
-  margin-bottom: 18px;
+  margin-bottom: 4px;
   color: rgba(232, 194, 138, 0.95);
 }
 
 .contact-success h3 {
-  margin-bottom: 18px;
+  display: grid;
+  gap: 8px;
+  margin-bottom: 0;
   color: #fff;
-  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-size: clamp(2rem, 3vw, 2.55rem);
+}
+
+.contact-success h3 span {
+  display: block;
 }
 
 .contact-success p:last-child {
+  max-width: 340px;
+  margin-bottom: 0;
   font-size: 1rem;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.82);
