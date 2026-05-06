@@ -3,16 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="A warm coastal hotel website for Capeway Inn & Suites in St. Bride's, Newfoundland and Labrador." />
-  <title>Capeway Inn & Suites | St. Bride's, Newfoundland</title>
+  <meta name="description" content="Stay at Capeway Inn & Suites in St. Bride's, Newfoundland, near Cape St. Mary's Ecological Reserve. Rooms, suites, Wi-Fi, parking, and coastal hospitality." />
+  <link rel="canonical" href="https://capeway-in.astigmedia.com/" />
+  <meta property="og:title" content="Capeway Inn & Suites | St. Bride's Newfoundland Accommodations" />
+  <meta property="og:description" content="Comfortable rooms and suites in scenic St. Bride's, minutes from Cape St. Mary's Ecological Reserve and Cape Shore attractions." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://capeway-in.astigmedia.com/" />
+  <meta property="og:image" content="https://capeway-in.astigmedia.com/assets/images/newfound-hero-optimized.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Capeway Inn & Suites | St. Bride's Newfoundland Accommodations" />
+  <meta name="twitter:description" content="Comfortable rooms and suites near Cape St. Mary's Ecological Reserve in St. Bride's, Newfoundland." />
+  <meta name="twitter:image" content="https://capeway-in.astigmedia.com/assets/images/newfound-hero-optimized.jpg" />
+  <title>Capeway Inn & Suites | St. Bride's Newfoundland Accommodations</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   />
   <link rel="preload" as="image" href="assets/images/newfound-hero-optimized.jpg" fetchpriority="high" />
   <link rel="stylesheet" href="style.css" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Hotel",
+      "name": "Capeway Inn & Suites",
+      "url": "https://capeway-in.astigmedia.com/",
+      "image": "https://capeway-in.astigmedia.com/assets/images/newfound-hero-optimized.jpg",
+      "description": "Comfortable rooms and suites in St. Bride's, Newfoundland, near Cape St. Mary's Ecological Reserve and Cape Shore attractions.",
+      "telephone": "+1-709-337-2163",
+      "email": "jk.cruz@inboxeen.com",
+      "priceRange": "$119-$169",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "St. Bride's",
+        "addressRegion": "NL",
+        "postalCode": "A0B 2Z0",
+        "addressCountry": "CA"
+      },
+      "amenityFeature": [
+        { "@type": "LocationFeatureSpecification", "name": "Free Wi-Fi", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Parking", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Private bathrooms", "value": true },
+        { "@type": "LocationFeatureSpecification", "name": "Cable TV", "value": true }
+      ]
+    }
+  </script>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do I request a reservation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Use the reservation request form with your preferred dates, room type, and contact details. The inn will follow up with availability and confirmation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What are the nightly rates at The Capeway?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Daily room rates range from $119 to $169 per night, depending on the room type."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you offer weekly or monthly rates?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Weekly and monthly rates are available for extended stays. Contact the inn directly for availability and pricing."
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -20,7 +88,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container nav-shell">
       <a class="brand" href="#home" aria-label="Capeway Inn & Suites home">
-        <img class="brand-logo" src="assets/images/capeway-logo-display.png" alt="Capeway Inn" width="900" height="507" decoding="async">
+        <img class="brand-logo" src="assets/images/capeway-logo-display.png" alt="Capeway Inn logo" width="900" height="507" decoding="async">
       </a>
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-controls="primaryMenu" aria-expanded="false">
@@ -41,7 +109,7 @@
         <a href="#contact">Contact</a>
       </nav>
 
-      <a class="btn btn-primary nav-cta" href="#reservation-request">Reserve Now</a>
+      <a class="btn btn-primary nav-cta" href="#reservation-request">Request Availability</a>
     </div>
   </header>
 
@@ -50,7 +118,7 @@
       <div class="hero-media">
         <img
           src="assets/images/newfound-hero-optimized.jpg"
-          alt="Newfoundland coastal village at dusk"
+          alt="Coastal village near St. Bride's Newfoundland at dusk"
           width="2400"
           height="1155"
           fetchpriority="high"
@@ -61,10 +129,11 @@
       <div class="container hero-content">
         <div class="hero-copy reveal">
           <p class="eyebrow">St. Bride's, Newfoundland and Labrador</p>
-          <h1>Coastal comfort on the quieter edge of Newfoundland.</h1>
+          <h1>Comfortable rooms in St. Bride's, minutes from Cape St. Mary's.</h1>
           <p class="hero-lede">
-            Settle into warm hospitality, restful rooms, and easy access to windswept drives,
-            coastal viewpoints, and the slow pleasure of a well-kept inn.
+            Stay at Capeway Inn &amp; Suites in scenic St. Bride's, Newfoundland, with restful rooms,
+            practical amenities, and easy access to Cape St. Mary's Ecological Reserve, Cape Shore
+            Drive, and nearby coastal attractions.
           </p>
           <div class="hero-highlights">
             <div>
@@ -84,7 +153,7 @@
 
         <div class="hero-side reveal">
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#reservation-request">Request a Reservation</a>
+            <a class="btn btn-primary" href="#reservation-request">Request Availability</a>
             <button class="btn btn-video" id="heroVideoOpen" type="button" aria-haspopup="dialog">
               <span class="play-icon" aria-hidden="true"></span>
               Watch Video
@@ -99,8 +168,8 @@
       <div class="container booking-section-layout">
         <div class="section-heading booking-section-heading reveal">
           <p class="eyebrow">Plan Your Stay</p>
-          <h2>Request a reservation.</h2>
-          <p>Share your preferred dates and room details, and we will follow up with availability.</p>
+          <h2>Request availability for your stay.</h2>
+          <p>Share your preferred dates, room type, and contact details. We will follow up with availability and confirmed pricing.</p>
         </div>
 
         <form class="booking-card booking-card-flip reveal" id="quickBookingForm" aria-label="Quick stay search">
@@ -175,7 +244,7 @@
                   ></textarea>
                 </label>
               </div>
-              <button class="btn btn-primary btn-full" type="submit">Check Availability</button>
+              <button class="btn btn-primary btn-full" type="submit">Request Availability</button>
               <p class="form-status" id="quickBookingStatus" aria-live="polite"></p>
             </div>
             <div class="booking-card-face booking-card-back" aria-live="polite">
@@ -194,13 +263,13 @@
       <div class="container about-layout">
         <div class="about-media reveal">
           <div class="about-stack">
-            <img
+            <img width="1800" height="1200"
               src="assets/gallery-enhanced/img_0848-enhanced.jpg"
-              alt="Capeway Inn guest room interior"
+              alt="Capeway Inn suite with kitchenette and sitting area"
             decoding="async" loading="lazy">
-            <img
+            <img width="1200" height="1800"
               src="assets/gallery-enhanced/img_0845-enhanced.jpg"
-              alt="Capeway Inn room with prepared beds"
+              alt="Bright Capeway Inn dining nook with window light"
             decoding="async" loading="lazy">
           </div>
           <div class="about-badge">
@@ -249,9 +318,9 @@
         <div class="room-grid">
           <article class="room-card reveal">
             <div class="room-image">
-              <img
+              <img width="1800" height="1200"
                 src="assets/gallery-enhanced/img_0844-enhanced.jpg"
-                alt="Standard Capeway Inn guest room"
+                alt="Standard Capeway Inn room with sofa and kitchenette"
               decoding="async" loading="lazy">
             </div>
             <div class="room-body">
@@ -267,15 +336,15 @@
                 <li>Kettle, toaster, dishes, and utensils</li>
                 <li>Coffee maker and color cable TV</li>
               </ul>
-              <a class="btn btn-secondary" href="#reservation-request">Reserve</a>
+              <a class="btn btn-secondary" href="#reservation-request">Request Availability</a>
             </div>
           </article>
 
           <article class="room-card reveal">
             <div class="room-image">
-              <img
+              <img width="1800" height="1200"
                 src="assets/gallery-enhanced/img_0836-enhanced.jpg"
-                alt="Deluxe Capeway Inn guest room"
+                alt="Capeway Inn hallway with guest room doors"
               decoding="async" loading="lazy">
             </div>
             <div class="room-body">
@@ -290,15 +359,15 @@
                 <li>Flat-screen cable TV</li>
                 <li>Enhanced seating area</li>
               </ul>
-              <a class="btn btn-secondary" href="#reservation-request">Reserve</a>
+              <a class="btn btn-secondary" href="#reservation-request">Request Availability</a>
             </div>
           </article>
 
           <article class="room-card reveal">
             <div class="room-image">
-              <img
+              <img width="1800" height="1200"
                 src="assets/gallery-enhanced/img_0835-enhanced.jpg"
-                alt="Family Capeway Inn guest room"
+                alt="Family suite living area with sofa at Capeway Inn"
               decoding="async" loading="lazy">
             </div>
             <div class="room-body">
@@ -313,7 +382,7 @@
                 <li>Separate sleeping space</li>
                 <li>Comfortable linens</li>
               </ul>
-              <a class="btn btn-secondary" href="#reservation-request">Reserve</a>
+              <a class="btn btn-secondary" href="#reservation-request">Request Availability</a>
             </div>
           </article>
         </div>
@@ -350,13 +419,13 @@
             <div><strong>$149</strong><span>Junior Suite</span></div>
             <div><strong>$169+</strong><span>Suite options</span></div>
           </div>
-          <a class="btn btn-primary" href="#reservation-request">Request a Reservation</a>
+          <a class="btn btn-primary" href="#reservation-request">Request Availability</a>
         </div>
 
         <div class="details-media reveal">
-          <img
+          <img width="1800" height="1200"
             src="assets/gallery-enhanced/img_0834-enhanced.jpg"
-            alt="Capeway Inn guest room detail"
+            alt="Capeway Inn corridor and sitting bench"
           decoding="async" loading="lazy">
           <div class="details-panel">
             <h3>Good to Know</h3>
@@ -434,83 +503,83 @@
         </div>
 
         <div class="gallery-grid">
-          <button class="gallery-item large reveal" type="button" data-full="assets/gallery-enhanced/img_0849-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0849-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item large reveal" type="button" data-full="assets/gallery-enhanced/img_0849-enhanced.jpg" data-alt="Capeway Inn guest suite seating area with coastal light">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0849-enhanced.jpg" alt="Capeway Inn guest suite seating area with coastal light" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0848-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0848-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0848-enhanced.jpg" data-alt="Capeway Inn suite with kitchenette and sitting area">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0848-enhanced.jpg" alt="Capeway Inn suite with kitchenette and sitting area" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item tall reveal" type="button" data-full="assets/gallery-enhanced/img_0845-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0845-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item tall reveal" type="button" data-full="assets/gallery-enhanced/img_0845-enhanced.jpg" data-alt="Bright Capeway Inn dining nook with window light">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0845-enhanced.jpg" alt="Bright Capeway Inn dining nook with window light" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0844-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0844-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0844-enhanced.jpg" data-alt="Standard Capeway Inn room with sofa and kitchenette">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0844-enhanced.jpg" alt="Standard Capeway Inn room with sofa and kitchenette" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0836-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0836-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0836-enhanced.jpg" data-alt="Capeway Inn hallway with guest room doors">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0836-enhanced.jpg" alt="Capeway Inn hallway with guest room doors" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0835-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0835-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0835-enhanced.jpg" data-alt="Family suite living area with sofa at Capeway Inn">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0835-enhanced.jpg" alt="Family suite living area with sofa at Capeway Inn" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0834-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0834-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0834-enhanced.jpg" data-alt="Capeway Inn corridor and sitting bench">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0834-enhanced.jpg" alt="Capeway Inn corridor and sitting bench" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0833-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0833-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0833-enhanced.jpg" data-alt="Capeway Inn lobby and entry seating area">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0833-enhanced.jpg" alt="Capeway Inn lobby and entry seating area" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0832-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0832-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0832-enhanced.jpg" data-alt="Capeway Inn landing with mirrors and soft lighting">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0832-enhanced.jpg" alt="Capeway Inn landing with mirrors and soft lighting" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0829-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0829-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0829-enhanced.jpg" data-alt="Capeway Inn hallway light fixture detail">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0829-enhanced.jpg" alt="Capeway Inn hallway light fixture detail" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0827-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0827-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0827-enhanced.jpg" data-alt="Capeway Inn exterior and surrounding property">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0827-enhanced.jpg" alt="Capeway Inn exterior and surrounding property" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item tall reveal" type="button" data-full="assets/gallery-enhanced/img_0826-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0826-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item tall reveal" type="button" data-full="assets/gallery-enhanced/img_0826-enhanced.jpg" data-alt="Capeway Inn room with bed and wood flooring">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0826-enhanced.jpg" alt="Capeway Inn room with bed and wood flooring" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0825-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0825-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0825-enhanced.jpg" data-alt="Capeway Inn room with bed, seating, and window">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0825-enhanced.jpg" alt="Capeway Inn room with bed, seating, and window" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0824-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0824-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0824-enhanced.jpg" data-alt="Capeway Inn bed with patterned curtains">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0824-enhanced.jpg" alt="Capeway Inn bed with patterned curtains" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0823-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0823-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0823-enhanced.jpg" data-alt="Capeway Inn guest room with sofa and bed">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0823-enhanced.jpg" alt="Capeway Inn guest room with sofa and bed" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0819-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0819-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-enhanced/img_0819-enhanced.jpg" data-alt="Cape Shore guest room interior near St. Bride's">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0819-enhanced.jpg" alt="Cape Shore guest room interior near St. Bride's" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0818-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0818-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0818-enhanced.jpg" data-alt="Capeway Inn guest bathroom and vanity area">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0818-enhanced.jpg" alt="Capeway Inn guest bathroom and vanity area" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0816-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0816-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0816-enhanced.jpg" data-alt="Capeway Inn room with kitchenette and table">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0816-enhanced.jpg" alt="Capeway Inn room with kitchenette and table" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0815-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0815-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-enhanced/img_0815-enhanced.jpg" data-alt="Capeway Inn suite seating and kitchen space">
+            <img width="1800" height="1200" src="assets/gallery-enhanced/img_0815-enhanced.jpg" alt="Capeway Inn suite seating and kitchen space" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item large reveal" type="button" data-full="assets/gallery-enhanced/img_0814-enhanced.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-enhanced/img_0814-enhanced.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item large reveal" type="button" data-full="assets/gallery-enhanced/img_0814-enhanced.jpg" data-alt="Capeway Inn bathroom shower and vanity">
+            <img width="1200" height="1800" src="assets/gallery-enhanced/img_0814-enhanced.jpg" alt="Capeway Inn bathroom shower and vanity" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-1.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-1.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-1.jpg" data-alt="Capeway Inn panoramic room and lounge view">
+            <img width="870" height="204" src="assets/gallery-optimized/optimized_Capeway-1.jpg" alt="Capeway Inn panoramic room and lounge view" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-2.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-2.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-2.jpg" data-alt="Capeway Inn room detail">
+            <img width="260" height="260" src="assets/gallery-optimized/optimized_Capeway-2.jpg" alt="Capeway Inn room detail" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-3.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-3.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item wide reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-3.jpg" data-alt="Capeway Inn guest suite panoramic interior">
+            <img width="870" height="204" src="assets/gallery-optimized/optimized_Capeway-3.jpg" alt="Capeway Inn guest suite panoramic interior" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-4.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-4.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-4.jpg" data-alt="Capeway Inn hallway and guest room panorama">
+            <img width="870" height="200" src="assets/gallery-optimized/optimized_Capeway-4.jpg" alt="Capeway Inn hallway and guest room panorama" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-6.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-6.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-6.jpg" data-alt="Capeway Inn compact guest room interior">
+            <img width="280" height="362" src="assets/gallery-optimized/optimized_Capeway-6.jpg" alt="Capeway Inn compact guest room interior" decoding="async" loading="lazy">
           </button>
-          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-7.jpg" data-alt="Capeway Inn and Suites photo">
-            <img src="assets/gallery-optimized/optimized_Capeway-7.jpg" alt="Capeway Inn and Suites photo" decoding="async" loading="lazy">
+          <button class="gallery-item reveal" type="button" data-full="assets/gallery-optimized/optimized_Capeway-7.jpg" data-alt="Capeway Inn room amenity detail">
+            <img width="260" height="260" src="assets/gallery-optimized/optimized_Capeway-7.jpg" alt="Capeway Inn room amenity detail" decoding="async" loading="lazy">
           </button>
         </div>
       </div>
@@ -525,9 +594,9 @@
 
         <div class="news-grid">
           <article class="news-card reveal">
-            <img
+            <img width="1800" height="1200"
               src="assets/gallery-enhanced/img_0833-enhanced.jpg"
-              alt="Capeway Inn and surrounding travel photo"
+              alt="Capeway Inn lobby and entry seating area"
             decoding="async" loading="lazy">
             <div class="news-body">
               <span class="news-meta">Virtual Tour</span>
@@ -538,9 +607,9 @@
           </article>
 
           <article class="news-card reveal">
-            <img
+            <img width="1800" height="1200"
               src="assets/gallery-enhanced/img_0832-enhanced.jpg"
-              alt="Capeway Inn and surrounding travel photo"
+              alt="Capeway Inn landing with mirrors and soft lighting"
             decoding="async" loading="lazy">
             <div class="news-body">
               <span class="news-meta">Cape Shore</span>
@@ -551,9 +620,9 @@
           </article>
 
           <article class="news-card reveal">
-            <img
+            <img width="1200" height="1800"
               src="assets/gallery-enhanced/img_0829-enhanced.jpg"
-              alt="Capeway Inn and surrounding travel photo"
+              alt="Capeway Inn hallway light fixture detail"
             decoding="async" loading="lazy">
             <div class="news-body">
               <span class="news-meta">Avalon Activities</span>
@@ -564,9 +633,9 @@
           </article>
 
           <article class="news-card news-card-wide reveal">
-            <img
+            <img width="1800" height="1200"
               src="assets/gallery-enhanced/img_0819-enhanced.jpg"
-              alt="Cape Shore local attractions near Capeway Inn"
+              alt="Cape Shore guest room interior near St. Bride's"
             decoding="async" loading="lazy">
             <div class="news-body">
               <span class="news-meta">Local Attractions</span>
@@ -696,9 +765,9 @@
           </address>
 
           <div class="contact-card-media">
-            <img
+            <img width="1800" height="1200"
               src="assets/gallery-enhanced/img_0827-enhanced.jpg"
-              alt="Capeway Inn location and property photo"
+              alt="Capeway Inn exterior and surrounding property"
             decoding="async" loading="lazy">
             <div class="map-pin">
               <strong>Capeway Inn &amp; Suites</strong>
@@ -764,7 +833,7 @@
     <div class="container footer-grid">
       <div>
         <a class="brand footer-brand" href="#home">
-          <img class="brand-logo" src="assets/images/capeway-logo-display.png" alt="Capeway Inn" width="900" height="507" decoding="async">
+          <img class="brand-logo" src="assets/images/capeway-logo-display.png" alt="Capeway Inn logo" width="900" height="507" decoding="async">
         </a>
         <p>A warm coastal base in St. Bride's for comfortable nights and scenic Newfoundland days.</p>
       </div>
@@ -784,7 +853,7 @@
       <div>
         <h2>Ready to Visit?</h2>
         <p>Send your dates and room preference, and prepare your request in minutes.</p>
-        <a class="btn btn-primary" href="#reservation-request">Book Now</a>
+        <a class="btn btn-primary" href="#reservation-request">Request Availability</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -796,7 +865,7 @@
 
   <div class="lightbox" id="lightbox" aria-hidden="true">
     <button class="lightbox-close" id="lightboxClose" type="button" aria-label="Close gallery">&times;</button>
-    <img id="lightboxImage" src="" alt="" decoding="async">
+    <img id="lightboxImage" src="" alt="" width="1800" height="1200" decoding="async">
   </div>
 
   <div class="video-modal" id="heroVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Capeway Inn video">

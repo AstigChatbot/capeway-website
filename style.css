@@ -59,6 +59,15 @@ button {
   cursor: pointer;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(183, 141, 82, 0.7);
+  outline-offset: 4px;
+}
+
 h1,
 h2,
 h3,
@@ -73,7 +82,8 @@ h3,
 h4 {
   color: var(--color-ink);
   font-family: "Cormorant Garamond", Georgia, serif;
-  line-height: 0.95;
+  line-height: 1.03;
+  text-wrap: balance;
 }
 
 section {
@@ -208,6 +218,7 @@ section {
   font-size: 0.96rem;
   font-weight: 800;
   letter-spacing: 0;
+  text-align: center;
   transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -320,7 +331,7 @@ section {
   max-width: 720px;
   margin-bottom: 22px;
   color: #fff;
-  font-size: clamp(3.8rem, 7vw, 6.6rem);
+  font-size: clamp(3.4rem, 6.2vw, 5.8rem);
 }
 
 .hero-lede {
@@ -621,7 +632,7 @@ textarea:focus {
 
 .section-heading h2 {
   margin-bottom: 18px;
-  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  font-size: clamp(2.55rem, 4.4vw, 3.8rem);
 }
 
 .section-heading p,
