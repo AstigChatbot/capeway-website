@@ -14,7 +14,7 @@
   --radius-card: 24px;
   --radius-md: 12px;
   --container: 1320px;
-  --header-height: 112px;
+  --header-height: 132px;
 }
 
 * {
@@ -142,13 +142,14 @@ section {
   gap: 28px;
 }
 
-.brand {
+.site-header .brand {
   flex: 0 0 auto;
+  margin-left: -22px;
 }
 
 .brand-logo {
-  height: min(96px, calc(var(--header-height) - 16px));
-  width: min(480px, 34vw);
+  height: min(124px, calc(var(--header-height) - 8px));
+  width: auto;
   max-width: 100%;
   object-fit: contain;
 }
@@ -1484,9 +1485,13 @@ address a {
     gap: 14px;
   }
 
+  .site-header .brand {
+    margin-left: -19px;
+  }
+
   .site-header .brand-logo {
-    height: 84px;
-    width: min(390px, 30vw);
+    height: 104px;
+    width: auto;
   }
 
   .nav-menu {
@@ -1610,6 +1615,10 @@ address a {
     display: none;
   }
 
+  .site-header .brand {
+    margin-left: -15px;
+  }
+
   .hero-section {
     min-height: auto;
     padding-top: calc(var(--header-height) + 44px);
@@ -1660,12 +1669,12 @@ address a {
   }
 
   .brand-logo {
-    height: 72px;
+    height: 82px;
   }
 
   .site-header .brand-logo {
-    height: 72px;
-    width: min(300px, 52vw);
+    height: 82px;
+    width: auto;
     max-width: 100%;
   }
 
@@ -1716,9 +1725,13 @@ address a {
     gap: 12px;
   }
 
+  .site-header .brand {
+    margin-left: -13px;
+  }
+
   .site-header .brand-logo {
-    height: 62px;
-    width: min(250px, 56vw);
+    height: 74px;
+    width: auto;
   }
 
   .hero-copy h1,
