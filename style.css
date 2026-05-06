@@ -978,6 +978,42 @@ textarea:focus {
   object-fit: cover;
 }
 
+.news-card-wide {
+  grid-column: 1 / -1;
+}
+
+.news-card-wide img {
+  height: 320px;
+}
+
+.attraction-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 22px;
+  padding: 0;
+  margin: 22px 0 0;
+  color: var(--color-ink);
+  font-size: 0.96rem;
+  font-weight: 700;
+  line-height: 1.55;
+  list-style: none;
+}
+
+.attraction-list li {
+  position: relative;
+  padding-left: 18px;
+}
+
+.attraction-list li::before {
+  position: absolute;
+  top: 0.68em;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--color-accent);
+  content: "";
+}
+
 .news-body a {
   display: inline-flex;
   align-items: center;
@@ -1473,6 +1509,10 @@ address a {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .attraction-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .footer-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1666,6 +1706,10 @@ address a {
 
   .efficiency-features ul {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .attraction-list {
+    grid-template-columns: 1fr;
   }
 
   .hero-highlights div,
