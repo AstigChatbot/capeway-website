@@ -604,6 +604,8 @@ textarea:focus {
 
 .section {
   padding: 110px 0;
+  content-visibility: auto;
+  contain-intrinsic-size: 900px;
 }
 
 .section-heading {
