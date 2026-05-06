@@ -17,6 +17,7 @@ const selectors = {
   primaryMenu: document.getElementById("primaryMenu"),
   quickBookingForm: document.getElementById("quickBookingForm"),
   quickBookingStatus: document.getElementById("quickBookingStatus"),
+  quickBookingInquiryId: document.getElementById("quickBookingInquiryId"),
   contactForm: document.getElementById("contactForm"),
   contactStatus: document.getElementById("contactStatus"),
   contactSuccessHeading: document.getElementById("contactSuccessHeading"),
@@ -28,6 +29,34 @@ const selectors = {
   lightboxImage: document.getElementById("lightboxImage"),
   lightboxClose: document.getElementById("lightboxClose")
 };
+
+function generateInquiryId() {
+  const now = new Date();
+  const datePart = [
+    now.getFullYear(),
+    String(now.getMonth() + 1).padStart(2, "0"),
+    String(now.getDate()).padStart(2, "0")
+  ].join("");
+  const randomValues = new Uint8Array(3);
+  crypto.getRandomValues(randomValues);
+  const randomPart = Array.from(randomValues, (value) => value.toString(36).padStart(2, "0"))
+    .join("")
+    .toUpperCase();
+
+  return `INQ-${datePart}-${randomPart}`;
+}
+
+async function getInquiryIdFromResponse(response) {
+  const contentType = response.headers.get("content-type") || "";
+  if (!contentType.includes("application/json")) return "";
+
+  try {
+    const data = await response.json();
+    return data.inquiryId || data.inquiryID || data.id || "";
+  } catch (error) {
+    return "";
+  }
+}
 
 function setContactSuccessHeading(greeting) {
   selectors.contactSuccessHeading.replaceChildren();
@@ -211,9 +240,11 @@ function setupQuickBooking() {
     }
 
     try {
+      const inquiryId = generateInquiryId();
       const requestPayload = {
         ...payload,
-        requestId: crypto.randomUUID()
+        inquiryId,
+        requestId: inquiryId
       };
 
       const response = await fetch(QUICK_BOOKING_WEBHOOK_URL, {
@@ -228,6 +259,10 @@ function setupQuickBooking() {
         throw new Error(`Quick booking webhook request failed with status ${response.status}.`);
       }
 
+      const confirmedInquiryId = await getInquiryIdFromResponse(response) || inquiryId;
+      if (selectors.quickBookingInquiryId) {
+        selectors.quickBookingInquiryId.textContent = confirmedInquiryId;
+      }
       selectors.quickBookingStatus.textContent = "";
       selectors.quickBookingForm.classList.add("is-flipped");
       clearTimeout(quickBookingFlipTimer);
