@@ -360,8 +360,7 @@ section {
   max-width: 620px;
 }
 
-.hero-highlights div {
-  padding: 18px 20px;
+.hero-highlights > div {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(8px);
   border-radius: 18px;
@@ -771,6 +770,89 @@ textarea:focus {
 .details-specs div {
   padding: 20px;
   background: var(--color-surface-alt);
+}
+
+.info-flip-card {
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.info-flip-card:focus-visible {
+  outline: 3px solid rgba(183, 141, 82, 0.7);
+  outline-offset: 4px;
+}
+
+.info-flip-inner {
+  position: relative;
+  min-height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
+}
+
+.info-flip-card.is-flipped .info-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.info-flip-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+}
+
+.info-flip-back {
+  transform: rotateY(180deg);
+}
+
+.hero-highlight-card {
+  min-height: 92px;
+}
+
+.hero-highlight-card .info-flip-inner {
+  min-height: 92px;
+}
+
+.hero-highlight-card .info-flip-face {
+  padding: 18px 20px;
+}
+
+.hero-highlight-card .info-flip-back strong {
+  font-size: 1.35rem;
+}
+
+.hero-highlight-card .info-flip-back span {
+  line-height: 1.35;
+}
+
+.feature-flip-card {
+  min-height: 128px;
+  padding: 0;
+}
+
+.feature-flip-card .info-flip-inner {
+  min-height: 128px;
+}
+
+.feature-flip-card .info-flip-face {
+  justify-content: flex-start;
+  padding: 20px;
+  background: var(--color-surface-alt);
+}
+
+.feature-flip-card .info-flip-back {
+  color: rgba(255, 255, 255, 0.84);
+  background: var(--color-brand);
+}
+
+.feature-flip-card .info-flip-back h3 {
+  color: #fff;
+}
+
+.feature-flip-card .info-flip-back p {
+  margin-bottom: 0;
 }
 
 .feature-points h3,
@@ -2433,7 +2515,7 @@ address a {
     grid-template-columns: 1fr;
   }
 
-  .hero-highlights div,
+  .hero-highlights > div,
   .feature-points article,
   .details-specs div,
   .amenity-card,
@@ -2442,7 +2524,11 @@ address a {
     padding: 20px;
   }
 
-  .hero-highlights div {
+  .feature-points article.feature-flip-card {
+    padding: 0;
+  }
+
+  .hero-highlights > div {
     min-height: 112px;
     padding: 14px 12px;
     border-radius: 14px;
