@@ -998,19 +998,10 @@ textarea:focus {
 
 .efficiency-card-inner {
   position: relative;
+  min-height: 210px;
   transform-style: preserve-3d;
   transform-origin: center center;
   transition: transform 0.72s cubic-bezier(0.2, 0.8, 0.18, 1);
-}
-
-.efficiency-flip-card:not(.is-flipped),
-.efficiency-flip-card:not(.is-flipped) .efficiency-card-inner {
-  min-height: 132px;
-}
-
-.efficiency-flip-card.is-flipped,
-.efficiency-flip-card.is-flipped .efficiency-card-inner {
-  min-height: 210px;
 }
 
 .efficiency-flip-card.is-flipped .efficiency-card-inner {
