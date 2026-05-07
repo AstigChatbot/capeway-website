@@ -220,7 +220,8 @@ function setupCookieConsent() {
 }
 
 function init() {
-  document.getElementById("year").textContent = new Date().getFullYear();
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
   setDateMinimums();
   setupNavigation();
   handleHeaderScroll();
@@ -304,6 +305,8 @@ function setupFaq() {
 }
 
 function handleHeaderScroll() {
+  if (!selectors.header) return;
+
   const syncHeader = () => {
     selectors.header.classList.toggle("scrolled", window.scrollY > 24);
   };
@@ -567,6 +570,8 @@ function setupGallery() {
 }
 
 function closeLightbox() {
+  if (!selectors.lightbox || !selectors.lightboxImage) return;
+
   selectors.lightbox.classList.remove("active");
   selectors.lightbox.setAttribute("aria-hidden", "true");
   selectors.lightboxImage.src = "";
