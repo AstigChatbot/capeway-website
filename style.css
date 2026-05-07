@@ -943,6 +943,63 @@ textarea:focus {
   box-shadow: var(--shadow-card);
 }
 
+.details-flip-panel {
+  width: min(320px, calc(100% - 56px));
+  min-height: 292px;
+  padding: 0;
+  border-left: 0;
+  cursor: pointer;
+  perspective: 1000px;
+  background: transparent;
+}
+
+.details-flip-panel:focus-visible {
+  outline: 3px solid rgba(183, 141, 82, 0.7);
+  outline-offset: 4px;
+}
+
+.details-panel-inner {
+  position: relative;
+  min-height: 292px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
+}
+
+.details-flip-panel.is-flipped .details-panel-inner {
+  transform: rotateY(180deg);
+}
+
+.details-panel-face {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  overflow: hidden;
+  background: var(--color-surface-alt);
+  border-left: 4px solid var(--color-accent);
+  backface-visibility: hidden;
+}
+
+.details-panel-back {
+  color: rgba(255, 255, 255, 0.84);
+  background: var(--color-brand);
+  border-left-color: var(--color-accent);
+  transform: rotateY(180deg);
+}
+
+.details-panel-back h3 {
+  color: #fff;
+}
+
+.details-panel-back p {
+  margin-bottom: 14px;
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+
+.details-panel-back p:last-child {
+  margin-bottom: 0;
+}
+
 .amenities-section {
   background: var(--color-surface);
 }

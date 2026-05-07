@@ -231,6 +231,7 @@ function init() {
   setupHeroVideo();
   setupFaq();
   setupAmenityCards();
+  setupDetailsPanel();
   setupRevealObserver();
   setupCookieConsent();
 }
@@ -314,6 +315,22 @@ function setupAmenityCards() {
 
     card.addEventListener("click", flip);
     card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      flip();
+    });
+  });
+}
+
+function setupDetailsPanel() {
+  document.querySelectorAll(".details-flip-panel").forEach((panel) => {
+    const flip = () => {
+      const isFlipped = panel.classList.toggle("is-flipped");
+      panel.setAttribute("aria-pressed", String(isFlipped));
+    };
+
+    panel.addEventListener("click", flip);
+    panel.addEventListener("keydown", (event) => {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       flip();
