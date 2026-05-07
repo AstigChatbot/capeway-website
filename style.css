@@ -831,12 +831,12 @@ textarea:focus {
 }
 
 .feature-flip-card {
-  min-height: 128px;
+  min-height: 190px;
   padding: 0;
 }
 
 .feature-flip-card .info-flip-inner {
-  min-height: 128px;
+  min-height: 190px;
 }
 
 .feature-flip-card .info-flip-face {
@@ -856,6 +856,8 @@ textarea:focus {
 
 .feature-flip-card .info-flip-back p {
   margin-bottom: 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
 }
 
 .feature-points h3,
