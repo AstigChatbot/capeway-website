@@ -29,7 +29,8 @@ const selectors = {
   lightboxImage: document.getElementById("lightboxImage"),
   lightboxClose: document.getElementById("lightboxClose"),
   cookieConsent: document.getElementById("cookieConsent"),
-  cookiePreferencesModal: document.getElementById("cookiePreferencesModal")
+  cookiePreferencesModal: document.getElementById("cookiePreferencesModal"),
+  scrollTopButton: document.getElementById("scrollTopButton")
 };
 
 const COOKIE_CONSENT_KEY = "capewayCookieConsent";
@@ -234,6 +235,7 @@ function init() {
   setupAmenityCards();
   setupDetailsPanel();
   setupEfficiencyCard();
+  setupScrollTopButton();
   setupRevealObserver();
   setupCookieConsent();
 }
@@ -370,6 +372,21 @@ function setupEfficiencyCard() {
       flip();
     });
   });
+}
+
+function setupScrollTopButton() {
+  if (!selectors.scrollTopButton) return;
+
+  const sync = () => {
+    selectors.scrollTopButton.classList.toggle("is-visible", window.scrollY > 520);
+  };
+
+  selectors.scrollTopButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  sync();
+  window.addEventListener("scroll", sync, { passive: true });
 }
 
 function handleHeaderScroll() {
