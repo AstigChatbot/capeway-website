@@ -998,11 +998,12 @@ textarea:focus {
   position: relative;
   min-height: 132px;
   transform-style: preserve-3d;
-  transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
+  transform-origin: center center;
+  transition: transform 0.72s cubic-bezier(0.2, 0.8, 0.18, 1);
 }
 
 .efficiency-flip-card.is-flipped .efficiency-card-inner {
-  transform: rotateY(180deg);
+  transform: rotateX(-180deg);
 }
 
 .efficiency-card-face {
@@ -1021,7 +1022,7 @@ textarea:focus {
   justify-content: center;
   color: rgba(255, 255, 255, 0.84);
   background: var(--color-brand);
-  transform: rotateY(180deg);
+  transform: rotateX(180deg);
 }
 
 .efficiency-features h3 {
