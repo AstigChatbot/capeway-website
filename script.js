@@ -230,6 +230,7 @@ function init() {
   setupGallery();
   setupHeroVideo();
   setupFaq();
+  setupAmenityCards();
   setupRevealObserver();
   setupCookieConsent();
 }
@@ -301,6 +302,22 @@ function setupFaq() {
 
     sync();
     window.addEventListener("resize", sync, { passive: true });
+  });
+}
+
+function setupAmenityCards() {
+  document.querySelectorAll(".amenity-flip-card").forEach((card) => {
+    const flip = () => {
+      const isFlipped = card.classList.toggle("is-flipped");
+      card.setAttribute("aria-pressed", String(isFlipped));
+    };
+
+    card.addEventListener("click", flip);
+    card.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      flip();
+    });
   });
 }
 

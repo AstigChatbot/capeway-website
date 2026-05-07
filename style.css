@@ -948,7 +948,44 @@ textarea:focus {
 }
 
 .amenity-card {
+  min-height: 236px;
+  cursor: pointer;
+  perspective: 1100px;
+}
+
+.amenity-card:focus-visible {
+  outline: 3px solid rgba(183, 141, 82, 0.7);
+  outline-offset: 4px;
+}
+
+.amenity-card-inner {
+  position: relative;
+  min-height: 236px;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
+}
+
+.amenity-card.is-flipped .amenity-card-inner {
+  transform: rotateY(180deg);
+}
+
+.amenity-card-face {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
   padding: 30px;
+  overflow: hidden;
+  background: var(--color-surface);
+  border-radius: var(--radius-card);
+  backface-visibility: hidden;
+}
+
+.amenity-card-back {
+  color: rgba(255, 255, 255, 0.82);
+  background: var(--color-brand);
+  transform: rotateY(180deg);
 }
 
 .amenity-card span {
@@ -962,6 +999,19 @@ textarea:focus {
   background: #f0e0c5;
   font-size: 1rem;
   font-weight: 800;
+}
+
+.amenity-card-back span {
+  color: var(--color-brand);
+  background: #f7e8cd;
+}
+
+.amenity-card-back h3 {
+  color: #fff;
+}
+
+.amenity-card-back p {
+  margin-bottom: 0;
 }
 
 .control-btn,
