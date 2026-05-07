@@ -808,11 +808,11 @@ textarea:focus {
 }
 
 .hero-highlight-card {
-  min-height: 136px;
+  min-height: 158px;
 }
 
 .hero-highlight-card .info-flip-inner {
-  min-height: 136px;
+  min-height: 158px;
 }
 
 .hero-highlight-card .info-flip-face {
@@ -826,8 +826,8 @@ textarea:focus {
 
 .hero-highlight-card .info-flip-back span {
   display: block;
-  font-size: 0.84rem;
-  line-height: 1.35;
+  font-size: 0.82rem;
+  line-height: 1.32;
 }
 
 .feature-flip-card {
