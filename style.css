@@ -980,16 +980,64 @@ textarea:focus {
 
 .efficiency-features {
   margin-top: 28px;
+  min-height: 132px;
+  padding: 0;
+  cursor: pointer;
+  perspective: 1100px;
+  background: transparent;
+  box-shadow: var(--shadow-soft);
+  border-radius: var(--radius-card);
+}
+
+.efficiency-features:focus-visible {
+  outline: 3px solid rgba(183, 141, 82, 0.7);
+  outline-offset: 4px;
+}
+
+.efficiency-card-inner {
+  position: relative;
+  min-height: 132px;
+  transform-style: preserve-3d;
+  transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
+}
+
+.efficiency-flip-card.is-flipped .efficiency-card-inner {
+  transform: rotateY(180deg);
+}
+
+.efficiency-card-face {
+  position: absolute;
+  inset: 0;
   padding: 24px 28px;
+  overflow: hidden;
   background: var(--color-surface);
   border-radius: var(--radius-card);
-  box-shadow: var(--shadow-soft);
+  backface-visibility: hidden;
+}
+
+.efficiency-card-back {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.84);
+  background: var(--color-brand);
+  transform: rotateY(180deg);
 }
 
 .efficiency-features h3 {
   margin-bottom: 14px;
   color: var(--color-ink);
   font-size: 1.5rem;
+}
+
+.efficiency-card-back h3 {
+  color: #fff;
+}
+
+.efficiency-card-back p {
+  max-width: 760px;
+  margin-bottom: 0;
+  line-height: 1.55;
 }
 
 .efficiency-features ul {
