@@ -877,6 +877,69 @@
     <div class="video-modal-frame" id="heroVideoFrame"></div>
   </div>
 
+  <section class="cookie-consent" id="cookieConsent" aria-label="Cookie consent" hidden>
+    <div class="cookie-consent-card" role="region" aria-labelledby="cookieConsentTitle">
+      <div class="cookie-orbit" aria-hidden="true">
+        <div class="cookie-orbit-card"></div>
+        <div class="cookie-icon-3d">
+          <span></span>
+          <i></i>
+          <i></i>
+          <i></i>
+        </div>
+      </div>
+      <div class="cookie-consent-copy">
+        <p class="eyebrow">Your privacy choices</p>
+        <h2 id="cookieConsentTitle">We use cookies to improve your stay online.</h2>
+        <p>Cookies help this site remember preferences, measure performance, and improve the booking experience while giving guests clear control over optional cookies.</p>
+        <div class="cookie-policy-links" aria-label="Cookie and privacy links">
+          <a href="/cookie-policy">Cookie Policy</a>
+          <a href="/privacy-policy">Privacy Policy</a>
+        </div>
+      </div>
+      <div class="cookie-choice-panel" aria-label="Booking experience preferences">
+        <span>Booking experience preferences</span>
+        <strong>Necessary cookies are always active.</strong>
+      </div>
+      <div class="cookie-actions" aria-label="Cookie consent choices">
+        <button class="btn btn-primary" type="button" data-cookie-action="accept">Accept all</button>
+        <button class="btn btn-secondary" type="button" data-cookie-action="reject">Reject non-essential</button>
+        <button class="btn btn-secondary" type="button" data-cookie-action="manage">Manage preferences</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="cookie-preferences-modal" id="cookiePreferencesModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="cookiePreferencesTitle">
+    <div class="cookie-preferences-panel">
+      <button class="cookie-modal-close" type="button" data-cookie-action="close-preferences" aria-label="Close cookie preferences">&times;</button>
+      <p class="eyebrow">Privacy settings</p>
+      <h2 id="cookiePreferencesTitle">Your privacy choices</h2>
+      <p class="cookie-preferences-intro">Choose which optional cookies Capeway Inn may use. You can change these preferences at any time by clearing your browser consent setting.</p>
+      <div class="cookie-category-list">
+        <label class="cookie-category">
+          <span><strong>Necessary</strong><small>Required for core site features, security, and consent storage.</small></span>
+          <input type="checkbox" checked disabled aria-label="Necessary cookies are always active">
+        </label>
+        <label class="cookie-category">
+          <span><strong>Analytics</strong><small>Helps us understand site performance and improve guest journeys.</small></span>
+          <input type="checkbox" data-cookie-toggle="analytics" aria-label="Allow analytics cookies">
+        </label>
+        <label class="cookie-category">
+          <span><strong>Marketing</strong><small>Supports relevant offers and campaign measurement when enabled.</small></span>
+          <input type="checkbox" data-cookie-toggle="marketing" aria-label="Allow marketing cookies">
+        </label>
+        <label class="cookie-category">
+          <span><strong>Preferences</strong><small>Remembers comfort settings and booking experience choices.</small></span>
+          <input type="checkbox" data-cookie-toggle="preferences" aria-label="Allow preference cookies">
+        </label>
+      </div>
+      <div class="cookie-modal-actions">
+        <button class="btn btn-primary" type="button" data-cookie-action="save">Save preferences</button>
+        <button class="btn btn-secondary" type="button" data-cookie-action="reject">Reject non-essential</button>
+      </div>
+    </div>
+  </div>
+
   <script src="script.js" defer></script>
 </body>
 </html>
