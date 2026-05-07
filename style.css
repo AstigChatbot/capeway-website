@@ -980,7 +980,7 @@ textarea:focus {
 
 .efficiency-features {
   margin-top: 28px;
-  min-height: 132px;
+  min-height: 210px;
   padding: 0;
   cursor: pointer;
   perspective: 1100px;
@@ -996,7 +996,7 @@ textarea:focus {
 
 .efficiency-card-inner {
   position: relative;
-  min-height: 132px;
+  min-height: 210px;
   transform-style: preserve-3d;
   transform-origin: center center;
   transition: transform 0.72s cubic-bezier(0.2, 0.8, 0.18, 1);
@@ -1019,7 +1019,7 @@ textarea:focus {
 .efficiency-card-back {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   color: rgba(255, 255, 255, 0.84);
   background: var(--color-brand);
   transform: rotateX(180deg);
@@ -1036,8 +1036,9 @@ textarea:focus {
 }
 
 .efficiency-card-back p {
-  max-width: 760px;
+  max-width: 980px;
   margin-bottom: 0;
+  font-size: 0.95rem;
   line-height: 1.55;
 }
 
