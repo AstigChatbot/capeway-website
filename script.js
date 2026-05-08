@@ -234,7 +234,6 @@ function init() {
   setupInfoFlipCards();
   setupAmenityCards();
   setupDetailsPanel();
-  setupEfficiencyCard();
   setupScrollTopButton();
   setupRevealObserver();
   setupCookieConsent();
@@ -351,22 +350,6 @@ function setupDetailsPanel() {
 
     panel.addEventListener("click", flip);
     panel.addEventListener("keydown", (event) => {
-      if (event.key !== "Enter" && event.key !== " ") return;
-      event.preventDefault();
-      flip();
-    });
-  });
-}
-
-function setupEfficiencyCard() {
-  document.querySelectorAll(".efficiency-flip-card").forEach((card) => {
-    const flip = () => {
-      const isFlipped = card.classList.toggle("is-flipped");
-      card.setAttribute("aria-pressed", String(isFlipped));
-    };
-
-    card.addEventListener("click", flip);
-    card.addEventListener("keydown", (event) => {
       if (event.key !== "Enter" && event.key !== " ") return;
       event.preventDefault();
       flip();
