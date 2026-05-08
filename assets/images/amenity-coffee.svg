@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Tea and coffee">
+  <circle cx="36" cy="36" r="34" fill="#fffaf1"/>
+  <path d="M18 31h31v13a12 12 0 0 1-12 12h-7a12 12 0 0 1-12-12z" fill="#d7e8ef" stroke="#102844" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M49 35h3a7 7 0 0 1 0 14h-3" fill="none" stroke="#102844" stroke-width="5"/>
+  <path d="M24 21c-3-5 4-7 1-12M36 21c-3-5 4-7 1-12M47 21c-3-5 4-7 1-12" fill="none" stroke="#b78d52" stroke-width="4" stroke-linecap="round"/>
+</svg>

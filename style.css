@@ -1102,23 +1102,38 @@ textarea:focus {
   transform: rotateY(180deg);
 }
 
-.amenity-card span {
-  display: inline-flex;
-  width: 62px;
-  height: 62px;
-  flex: 0 0 62px;
-  align-self: flex-start;
+.amenity-visual {
+  width: 116px;
+  min-height: 116px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   margin-bottom: 18px;
-  color: var(--color-brand);
-  background: #f0e0c5;
-  font-size: 1rem;
-  font-weight: 800;
+  padding: 12px 10px 10px;
+  background: #f6ead3;
+  border: 1px solid rgba(183, 141, 82, 0.2);
+  border-radius: 16px;
 }
 
-.amenity-card-back span {
+.amenity-visual img {
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+}
+
+.amenity-icon-label {
   color: var(--color-brand);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1.1;
+  text-align: center;
+}
+
+.amenity-card-back .amenity-visual {
   background: #f7e8cd;
 }
 

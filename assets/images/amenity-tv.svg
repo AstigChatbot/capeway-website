@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Cable TV">
+  <circle cx="36" cy="36" r="34" fill="#fffaf1"/>
+  <rect x="12" y="18" width="48" height="32" rx="5" fill="#d7e8ef" stroke="#102844" stroke-width="5"/>
+  <path d="M26 60h20M31 50l-4 10M41 50l4 10" fill="none" stroke="#102844" stroke-width="5" stroke-linecap="round"/>
+  <path d="M20 26h32" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity=".7"/>
+</svg>
