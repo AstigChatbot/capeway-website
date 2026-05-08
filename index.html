@@ -971,16 +971,19 @@
 
     <section class="section map-section" aria-label="Capeway Inn & Suites location map">
       <div class="container">
-        <div class="map-hero reveal">
-          <iframe
-            title="Capeway Inn & Suites Google Map"
-            src="https://www.google.com/maps?q=Capeway%20Inn%20%26%20Suites%2C%2011%20Main%20Street%2C%20Route%20100%2C%20St.%20Bride%27s%2C%20NL%20A0B%202Z0%20Canada&ll=46.926668,-54.174698&z=16&output=embed"
-            width="1200"
-            height="520"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen>
-          </iframe>
+        <div class="map-hero static-map reveal">
+          <div class="static-map-water" aria-hidden="true"></div>
+          <div class="static-map-land" aria-hidden="true"></div>
+          <div class="static-map-road static-map-road-main" aria-hidden="true"></div>
+          <div class="static-map-road static-map-road-side" aria-hidden="true"></div>
+          <div class="static-map-label static-map-label-main" aria-hidden="true">Route 100 / Main Street</div>
+          <div class="static-map-label static-map-label-side" aria-hidden="true">Riverside Drive</div>
+          <div class="static-map-marker" aria-hidden="true"></div>
+          <div class="static-map-card">
+            <strong>Capeway Inn &amp; Suites</strong>
+            <span>11 Main Street, Route 100, St. Bride's, NL A0B 2Z0 Canada</span>
+            <small>46.926668, -54.174698</small>
+          </div>
         </div>
       </div>
     </section>
