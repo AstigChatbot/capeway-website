@@ -1062,7 +1062,7 @@ textarea:focus {
 }
 
 .amenity-card {
-  min-height: 300px;
+  min-height: 330px;
   cursor: pointer;
   perspective: 1100px;
 }
@@ -1074,7 +1074,7 @@ textarea:focus {
 
 .amenity-card-inner {
   position: relative;
-  min-height: 300px;
+  min-height: 330px;
   height: 100%;
   transform-style: preserve-3d;
   transition: transform 0.65s cubic-bezier(0.2, 0.78, 0.18, 1);
@@ -1089,7 +1089,7 @@ textarea:focus {
   inset: 0;
   display: flex;
   flex-direction: column;
-  padding: 30px 28px;
+  padding: 34px 28px 32px;
   overflow: hidden;
   background: var(--color-surface);
   border-radius: var(--radius-card);
@@ -1097,36 +1097,37 @@ textarea:focus {
 }
 
 .amenity-card-back {
+  padding: 26px 26px 30px;
   color: rgba(255, 255, 255, 0.82);
   background: var(--color-brand);
   transform: rotateY(180deg);
 }
 
 .amenity-visual {
-  width: 116px;
-  min-height: 116px;
+  width: 92px;
+  min-height: 92px;
   display: flex;
   flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  margin-bottom: 18px;
-  padding: 12px 10px 10px;
+  gap: 6px;
+  margin-bottom: 20px;
+  padding: 10px 8px 8px;
   background: #f6ead3;
   border: 1px solid rgba(183, 141, 82, 0.2);
   border-radius: 16px;
 }
 
 .amenity-visual img {
-  width: 58px;
-  height: 58px;
+  width: 44px;
+  height: 44px;
   object-fit: contain;
 }
 
 .amenity-icon-label {
   color: var(--color-brand);
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 800;
   letter-spacing: 0;
   line-height: 1.1;
@@ -1139,12 +1140,14 @@ textarea:focus {
 
 .amenity-card-back h3 {
   color: #fff;
+  margin-bottom: 10px;
+  font-size: 1.65rem;
 }
 
 .amenity-card-back p {
   margin-bottom: 0;
-  font-size: 0.92rem;
-  line-height: 1.55;
+  font-size: 0.84rem;
+  line-height: 1.45;
 }
 
 .control-btn,
