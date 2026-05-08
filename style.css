@@ -1293,8 +1293,11 @@ textarea:focus {
 }
 
 .news-card-wide img.amenity-feature-image {
-  height: min(58vw, 620px);
-  padding: 18px;
+  width: min(100%, 780px);
+  height: auto;
+  max-height: 360px;
+  margin: 0 auto;
+  padding: 14px;
 }
 
 .attraction-list {
