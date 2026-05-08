@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://capeway-in.astigmedia.com/sitemap.xml
+Sitemap: https://capewayinn.astigmedia.com/sitemap.xml

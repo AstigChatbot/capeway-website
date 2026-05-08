@@ -1358,7 +1358,7 @@ textarea:focus {
 .reservation-section {
   background:
     linear-gradient(rgba(15, 39, 63, 0.88), rgba(15, 39, 63, 0.88)),
-    url("assets/gallery-enhanced/img_0819-enhanced.jpg") center/cover;
+    url("assets/gallery-enhanced/img_0819-enhanced.webp") center/cover;
 }
 
 .reservation-shell {
@@ -1668,7 +1668,7 @@ address a {
   color: rgba(255, 255, 255, 0.82);
   background:
     linear-gradient(90deg, rgba(12, 24, 38, 0.92), rgba(12, 24, 38, 0.7)),
-    url("assets/images/newfound-hero-optimized.jpg") center/cover;
+    url("assets/images/newfound-hero-optimized.webp") center/cover;
 }
 
 .policy-hero-inner {

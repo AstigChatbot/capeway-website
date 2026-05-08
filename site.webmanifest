@@ -1,0 +1,19 @@
+{
+  "name": "Capeway Inn & Suites",
+  "short_name": "Capeway Inn",
+  "icons": [
+    {
+      "src": "/assets/images/favicon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/assets/images/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#102844",
+  "background_color": "#ffffff",
+  "display": "browser"
+}
