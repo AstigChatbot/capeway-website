@@ -1292,12 +1292,20 @@ textarea:focus {
   height: 320px;
 }
 
+.amenity-feature-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background: #f4fbf8;
+}
+
 .news-card-wide img.amenity-feature-image {
-  width: min(100%, 780px);
+  width: 100%;
   height: auto;
-  max-height: 360px;
-  margin: 0 auto;
-  padding: 14px;
+  max-height: none;
+  padding: 0;
+  border-radius: 14px;
 }
 
 .attraction-list {
@@ -2603,6 +2611,10 @@ address a {
 
   .policy-contact-list {
     display: grid;
+  }
+
+  .amenity-feature-pair {
+    grid-template-columns: 1fr;
   }
 
   .scroll-top-button {
