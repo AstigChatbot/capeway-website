@@ -224,6 +224,7 @@ function init() {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   setDateMinimums();
+  setupDatePickerActivation();
   setupNavigation();
   handleHeaderScroll();
   setupQuickBooking();
@@ -254,6 +255,48 @@ function setDateMinimums() {
   ["quickCheckOut"].forEach((id) => {
     const input = document.getElementById(id);
     if (input) input.min = tomorrowValue;
+  });
+}
+
+function setupDatePickerActivation() {
+  ["quickCheckIn", "quickCheckOut"].forEach((id) => {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    const openPicker = () => {
+      try {
+        input.focus({ preventScroll: true });
+      } catch (error) {
+        input.focus();
+      }
+
+      if (typeof input.showPicker === "function") {
+        try {
+          input.showPicker();
+          return true;
+        } catch (error) {
+          input.focus();
+        }
+      }
+
+      return false;
+    };
+
+    input.addEventListener("pointerdown", (event) => {
+      if (event.button !== 0) return;
+      if (openPicker()) event.preventDefault();
+    });
+
+    input.addEventListener("click", () => {
+      openPicker();
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        openPicker();
+      }
+    });
   });
 }
 
