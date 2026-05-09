@@ -309,23 +309,10 @@ section {
 .hero-content {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 0.72fr);
-  gap: 44px;
-  align-items: start;
 }
 
 .hero-copy {
   max-width: 720px;
-}
-
-.hero-side {
-  display: grid;
-  justify-items: end;
-  gap: 16px;
-  width: min(100%, 360px);
-  padding-top: clamp(170px, 20vh, 240px);
-  margin-left: auto;
 }
 
 .hero-copy h1 {
@@ -344,9 +331,10 @@ section {
 
 .hero-actions {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 12px;
-  width: 100%;
+  width: min(100%, 360px);
+  margin-top: 24px;
 }
 
 .hero-actions .btn {
@@ -372,7 +360,7 @@ section {
 
 .hero-booking-panel .booking-card {
   width: 100%;
-  margin-top: 8px;
+  margin-top: 12px;
 }
 
 .hero-booking-panel .booking-card-face {
@@ -2279,17 +2267,6 @@ address a {
     grid-template-columns: 1fr;
   }
 
-  .hero-content {
-    gap: 32px;
-  }
-
-  .hero-side {
-    justify-items: start;
-    width: min(100%, 620px);
-    padding-top: 0;
-    margin-left: 0;
-  }
-
   .hero-copy,
   .reservation-intro,
   .contact-card,
@@ -2410,6 +2387,10 @@ address a {
 
   .hero-highlights {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .hero-actions {
+    grid-template-columns: 1fr;
   }
 
   .feature-points,
