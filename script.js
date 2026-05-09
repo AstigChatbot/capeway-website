@@ -288,10 +288,6 @@ function setupHeroBookingPanel() {
       openPanel();
     });
   });
-
-  if (window.location.hash === "#reservation-request") {
-    openPanel(false);
-  }
 }
 
 function setupDatePickerActivation() {
