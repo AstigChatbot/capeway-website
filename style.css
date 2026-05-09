@@ -324,7 +324,7 @@ section {
   justify-items: end;
   gap: 16px;
   width: min(100%, 360px);
-  padding-top: 92px;
+  padding-top: clamp(170px, 20vh, 240px);
   margin-left: auto;
 }
 
