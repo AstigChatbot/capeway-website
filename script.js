@@ -15,6 +15,8 @@ const selectors = {
   header: document.getElementById("siteHeader"),
   menuToggle: document.getElementById("menuToggle"),
   primaryMenu: document.getElementById("primaryMenu"),
+  heroBookingPanel: document.getElementById("heroBookingPanel"),
+  bookingSection: document.getElementById("reservation-request"),
   quickBookingForm: document.getElementById("quickBookingForm"),
   quickBookingStatus: document.getElementById("quickBookingStatus"),
   quickBookingInquiryId: document.getElementById("quickBookingInquiryId"),
@@ -225,6 +227,7 @@ function init() {
   if (year) year.textContent = new Date().getFullYear();
   setDateMinimums();
   setupDatePickerActivation();
+  setupHeroBookingPanel();
   setupNavigation();
   handleHeaderScroll();
   setupQuickBooking();
@@ -256,6 +259,39 @@ function setDateMinimums() {
     const input = document.getElementById(id);
     if (input) input.min = tomorrowValue;
   });
+}
+
+function setupHeroBookingPanel() {
+  if (!selectors.heroBookingPanel || !selectors.quickBookingForm) return;
+
+  selectors.heroBookingPanel.append(selectors.quickBookingForm);
+  selectors.quickBookingForm.classList.remove("reveal");
+  selectors.bookingSection?.setAttribute("hidden", "");
+
+  const openPanel = (shouldScroll = true) => {
+    selectors.heroBookingPanel.classList.add("is-open");
+    selectors.heroBookingPanel.setAttribute("aria-hidden", "false");
+    document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
+      link.setAttribute("aria-expanded", "true");
+    });
+
+    if (shouldScroll) {
+      selectors.heroBookingPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+  };
+
+  document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
+    link.setAttribute("aria-controls", "heroBookingPanel");
+    link.setAttribute("aria-expanded", "false");
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      openPanel();
+    });
+  });
+
+  if (window.location.hash === "#reservation-request") {
+    openPanel(false);
+  }
 }
 
 function setupDatePickerActivation() {

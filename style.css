@@ -353,6 +353,36 @@ section {
   width: 100%;
 }
 
+.hero-booking-panel {
+  width: min(520px, calc(100vw - 40px));
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: max-height 0.65s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+.hero-booking-panel.is-open {
+  max-height: 1180px;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.hero-booking-panel .booking-card {
+  width: 100%;
+  margin-top: 8px;
+}
+
+.hero-booking-panel .booking-card-face {
+  padding: 28px;
+}
+
+.hero-booking-panel .card-heading h2 {
+  font-size: clamp(2rem, 3vw, 2.7rem);
+}
+
 .hero-highlights {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
