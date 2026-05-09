@@ -309,6 +309,10 @@ section {
 .hero-content {
   position: relative;
   z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 720px) minmax(360px, 520px);
+  gap: 44px;
+  align-items: start;
 }
 
 .hero-copy {
@@ -342,12 +346,13 @@ section {
 }
 
 .hero-booking-panel {
-  width: min(520px, calc(100vw - 40px));
+  justify-self: end;
+  width: min(520px, 100%);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-12px);
+  transform: translateX(18px);
   transition: max-height 0.65s ease, opacity 0.35s ease, transform 0.35s ease;
 }
 
@@ -360,7 +365,6 @@ section {
 
 .hero-booking-panel .booking-card {
   width: 100%;
-  margin-top: 12px;
 }
 
 .hero-booking-panel .booking-card-face {
@@ -2272,6 +2276,12 @@ address a {
   .contact-card,
   .contact-form {
     max-width: 100%;
+  }
+
+  .hero-booking-panel {
+    justify-self: start;
+    width: min(100%, 520px);
+    transform: translateY(-12px);
   }
 
   .room-grid,
