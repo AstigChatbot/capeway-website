@@ -353,7 +353,7 @@ section {
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
-  transform: translateX(18px);
+  transform: translateY(-12px);
   transition: max-height 0.65s ease, opacity 0.35s ease, transform 0.35s ease, margin-top 0.35s ease;
 }
 
