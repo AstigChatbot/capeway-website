@@ -264,43 +264,7 @@ function setDateMinimums() {
 function setupHeroBookingPanel() {
   if (!selectors.heroBookingPanel || !selectors.quickBookingForm) return;
 
-  selectors.heroBookingPanel.append(selectors.quickBookingForm);
-  selectors.quickBookingForm.classList.remove("reveal");
-  selectors.bookingSection?.setAttribute("hidden", "");
-
-  const scrollPanelIntoView = () => {
-    const headerHeight = selectors.header?.offsetHeight || 0;
-    const topPadding = 72;
-    const panelTop = selectors.heroBookingPanel.getBoundingClientRect().top + window.scrollY;
-
-    window.scrollTo({
-      top: Math.max(0, panelTop - headerHeight - topPadding),
-      behavior: "smooth"
-    });
-  };
-
-  const openPanel = (shouldScroll = true) => {
-    selectors.heroBookingPanel.classList.add("is-open");
-    selectors.heroBookingPanel.setAttribute("aria-hidden", "false");
-    document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
-      link.setAttribute("aria-expanded", "true");
-    });
-
-    if (shouldScroll) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(scrollPanelIntoView);
-      });
-    }
-  };
-
-  document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
-    link.setAttribute("aria-controls", "heroBookingPanel");
-    link.setAttribute("aria-expanded", "false");
-    link.addEventListener("click", (event) => {
-      event.preventDefault();
-      openPanel();
-    });
-  });
+  selectors.heroBookingPanel.setAttribute("hidden", "");
 }
 
 function setupDatePickerActivation() {
