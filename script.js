@@ -270,7 +270,7 @@ function setupHeroBookingPanel() {
 
   const scrollPanelIntoView = () => {
     const headerHeight = selectors.header?.offsetHeight || 0;
-    const topPadding = 24;
+    const topPadding = 72;
     const panelTop = selectors.heroBookingPanel.getBoundingClientRect().top + window.scrollY;
 
     window.scrollTo({
@@ -287,7 +287,9 @@ function setupHeroBookingPanel() {
     });
 
     if (shouldScroll) {
-      requestAnimationFrame(scrollPanelIntoView);
+      requestAnimationFrame(() => {
+        requestAnimationFrame(scrollPanelIntoView);
+      });
     }
   };
 

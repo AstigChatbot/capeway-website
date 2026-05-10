@@ -348,16 +348,17 @@ section {
 .hero-booking-panel {
   justify-self: end;
   width: min(520px, 100%);
-  scroll-margin-top: calc(var(--header-height) + 24px);
+  scroll-margin-top: calc(var(--header-height) + 72px);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
   pointer-events: none;
   transform: translateX(18px);
-  transition: max-height 0.65s ease, opacity 0.35s ease, transform 0.35s ease;
+  transition: max-height 0.65s ease, opacity 0.35s ease, transform 0.35s ease, margin-top 0.35s ease;
 }
 
 .hero-booking-panel.is-open {
+  margin-top: clamp(36px, 6vh, 72px);
   max-height: 1180px;
   opacity: 1;
   pointer-events: auto;
