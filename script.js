@@ -27,6 +27,9 @@ const selectors = {
   heroVideoModal: document.getElementById("heroVideoModal"),
   heroVideoClose: document.getElementById("heroVideoClose"),
   heroVideoFrame: document.getElementById("heroVideoFrame"),
+  reservationModal: document.getElementById("reservationModal"),
+  reservationModalPanel: document.getElementById("reservationModalPanel"),
+  reservationModalClose: document.getElementById("reservationModalClose"),
   lightbox: document.getElementById("lightbox"),
   lightboxImage: document.getElementById("lightboxImage"),
   lightboxClose: document.getElementById("lightboxClose"),
@@ -228,6 +231,7 @@ function init() {
   setDateMinimums();
   setupDatePickerActivation();
   setupHeroBookingPanel();
+  setupFooterReservationModal();
   setupNavigation();
   handleHeaderScroll();
   setupQuickBooking();
@@ -282,7 +286,7 @@ function setupHeroBookingPanel() {
   const openPanel = (shouldScroll = true) => {
     selectors.heroBookingPanel.classList.add("is-open");
     selectors.heroBookingPanel.setAttribute("aria-hidden", "false");
-    document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
+    document.querySelectorAll('a[href="#reservation-request"]:not([data-footer-reservation-modal])').forEach((link) => {
       link.setAttribute("aria-expanded", "true");
     });
 
@@ -293,13 +297,54 @@ function setupHeroBookingPanel() {
     }
   };
 
-  document.querySelectorAll('a[href="#reservation-request"]').forEach((link) => {
+  document.querySelectorAll('a[href="#reservation-request"]:not([data-footer-reservation-modal])').forEach((link) => {
     link.setAttribute("aria-controls", "heroBookingPanel");
     link.setAttribute("aria-expanded", "false");
     link.addEventListener("click", (event) => {
       event.preventDefault();
       openPanel();
     });
+  });
+}
+
+function setupFooterReservationModal() {
+  if (!selectors.reservationModal || !selectors.reservationModalPanel || !selectors.quickBookingForm) return;
+
+  const footerButtons = document.querySelectorAll("[data-footer-reservation-modal]");
+  if (!footerButtons.length) return;
+
+  const closeModal = () => {
+    selectors.reservationModal.classList.remove("active");
+    selectors.reservationModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("reservation-modal-open");
+    selectors.heroBookingPanel?.append(selectors.quickBookingForm);
+  };
+
+  const openModal = () => {
+    selectors.reservationModalPanel.append(selectors.quickBookingForm);
+    selectors.reservationModal.classList.add("active");
+    selectors.reservationModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("reservation-modal-open");
+    selectors.quickBookingForm.querySelector("input, select, textarea, button")?.focus({ preventScroll: true });
+  };
+
+  footerButtons.forEach((button) => {
+    button.setAttribute("aria-controls", "reservationModal");
+    button.setAttribute("aria-haspopup", "dialog");
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  selectors.reservationModalClose?.addEventListener("click", closeModal);
+  selectors.reservationModal.addEventListener("click", (event) => {
+    if (event.target === selectors.reservationModal) closeModal();
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && selectors.reservationModal.classList.contains("active")) {
+      closeModal();
+    }
   });
 }
 

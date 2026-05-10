@@ -1056,7 +1056,7 @@
       <div>
         <h2>Ready to Visit?</h2>
         <p>Send your dates and room preference, and prepare your request in minutes.</p>
-        <a class="btn btn-primary" href="#reservation-request">Reservation</a>
+        <a class="btn btn-primary" href="#reservation-request" data-footer-reservation-modal>Reservation</a>
       </div>
     </div>
     <div class="footer-bottom">
@@ -1079,6 +1079,11 @@
   <div class="video-modal" id="heroVideoModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Capeway Inn video">
     <button class="video-modal-close" id="heroVideoClose" type="button" aria-label="Close video">&times;</button>
     <div class="video-modal-frame" id="heroVideoFrame"></div>
+  </div>
+
+  <div class="reservation-modal" id="reservationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reservation request form">
+    <button class="reservation-modal-close" id="reservationModalClose" type="button" aria-label="Close reservation form">&times;</button>
+    <div class="reservation-modal-panel" id="reservationModalPanel"></div>
   </div>
 
   <section class="cookie-consent" id="cookieConsent" aria-label="Cookie consent" hidden>

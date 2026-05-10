@@ -38,6 +38,10 @@ body.menu-open {
   overflow: hidden;
 }
 
+body.reservation-modal-open {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -1882,6 +1886,50 @@ address a {
 }
 
 .video-modal-close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  font-size: 1.6rem;
+}
+
+.reservation-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 96;
+  display: grid;
+  place-items: center;
+  padding: 28px;
+  background: rgba(8, 14, 23, 0.74);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.reservation-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.reservation-modal-panel {
+  width: min(100%, 560px);
+  max-height: calc(100vh - 56px);
+  overflow-y: auto;
+  border-radius: 18px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.36);
+}
+
+.reservation-modal-panel .booking-card {
+  width: 100%;
+  box-shadow: none;
+}
+
+.reservation-modal-close {
   position: absolute;
   top: 18px;
   right: 18px;
