@@ -268,6 +268,17 @@ function setupHeroBookingPanel() {
   selectors.quickBookingForm.classList.remove("reveal");
   selectors.bookingSection?.setAttribute("hidden", "");
 
+  const scrollPanelIntoView = () => {
+    const headerHeight = selectors.header?.offsetHeight || 0;
+    const topPadding = 24;
+    const panelTop = selectors.heroBookingPanel.getBoundingClientRect().top + window.scrollY;
+
+    window.scrollTo({
+      top: Math.max(0, panelTop - headerHeight - topPadding),
+      behavior: "smooth"
+    });
+  };
+
   const openPanel = (shouldScroll = true) => {
     selectors.heroBookingPanel.classList.add("is-open");
     selectors.heroBookingPanel.setAttribute("aria-hidden", "false");
@@ -276,7 +287,7 @@ function setupHeroBookingPanel() {
     });
 
     if (shouldScroll) {
-      selectors.heroBookingPanel.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      requestAnimationFrame(scrollPanelIntoView);
     }
   };
 

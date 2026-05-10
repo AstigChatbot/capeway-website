@@ -348,6 +348,7 @@ section {
 .hero-booking-panel {
   justify-self: end;
   width: min(520px, 100%);
+  scroll-margin-top: calc(var(--header-height) + 24px);
   max-height: 0;
   overflow: hidden;
   opacity: 0;
