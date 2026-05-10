@@ -28,8 +28,24 @@
   />
   <noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" /></noscript>
   <link rel="preload" as="image" href="assets/images/newfound-hero-optimized.webp" type="image/webp" fetchpriority="high" />
-  <link rel="preload" as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'" />
-  <noscript><link rel="stylesheet" href="style.css" /></noscript>
+  <style>
+    .skip-link {
+      position: fixed;
+      top: 14px;
+      left: 14px;
+      z-index: 100;
+      transform: translateY(-140%);
+      padding: 10px 14px;
+      color: #fff;
+      background: #102844;
+      transition: transform 0.2s ease;
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
