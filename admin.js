@@ -15,6 +15,8 @@ const passwordResetForm = document.getElementById("passwordResetForm");
 const settingsStatus = document.getElementById("settingsStatus");
 const resetStatus = document.getElementById("resetStatus");
 const resetSettingsButton = document.getElementById("resetSettings");
+const adminUserButton = document.querySelector(".admin-user");
+const adminNavLinks = document.querySelectorAll(".admin-nav a");
 
 function readSiteSettings() {
   try {
@@ -87,6 +89,31 @@ function showStatus(element, message) {
     if (element.textContent === message) element.textContent = "";
   }, 4000);
 }
+
+function setActiveAdminSection(targetHash) {
+  adminNavLinks.forEach((link) => {
+    link.classList.toggle("active", link.getAttribute("href") === targetHash);
+  });
+}
+
+function openBusinessSettings() {
+  setActiveAdminSection("#business-settings");
+  document.getElementById("business-settings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+
+  window.setTimeout(() => {
+    businessForm.logoUrl.focus({ preventScroll: true });
+    businessForm.logoUrl.select();
+  }, 250);
+}
+
+adminNavLinks.forEach((link) => {
+  link.addEventListener("click", () => {
+    const hash = link.getAttribute("href");
+    if (hash?.startsWith("#")) setActiveAdminSection(hash);
+  });
+});
+
+adminUserButton?.addEventListener("click", openBusinessSettings);
 
 businessForm.addEventListener("input", () => {
   updatePreview({ ...readSiteSettings(), ...getBusinessFormValues() });
