@@ -676,6 +676,53 @@ textarea::placeholder {
   opacity: 1 !important;
 }
 
+.modal fieldset,
+[role="dialog"] fieldset,
+.message-details fieldset,
+.details-modal fieldset,
+.modal .disabled,
+.modal .is-disabled,
+.modal .opacity-40,
+.modal .opacity-50,
+.modal .opacity-60,
+[role="dialog"] .disabled,
+[role="dialog"] .is-disabled,
+[role="dialog"] .opacity-40,
+[role="dialog"] .opacity-50,
+[role="dialog"] .opacity-60,
+.message-details .disabled,
+.message-details .is-disabled,
+.message-details .opacity-40,
+.message-details .opacity-50,
+.message-details .opacity-60,
+.details-modal .disabled,
+.details-modal .is-disabled,
+.details-modal .opacity-40,
+.details-modal .opacity-50,
+.details-modal .opacity-60 {
+  opacity: 1 !important;
+}
+
+.modal input[disabled],
+.modal select[disabled],
+.modal textarea[disabled],
+[role="dialog"] input[disabled],
+[role="dialog"] select[disabled],
+[role="dialog"] textarea[disabled],
+.message-details input[disabled],
+.message-details select[disabled],
+.message-details textarea[disabled],
+.details-modal input[disabled],
+.details-modal select[disabled],
+.details-modal textarea[disabled] {
+  color: #0f1f33 !important;
+  -webkit-text-fill-color: #0f1f33 !important;
+  text-shadow: 0 0 0 #0f1f33 !important;
+  background-color: #ffffff !important;
+  filter: none !important;
+  opacity: 1 !important;
+}
+
 .modal input::placeholder,
 .modal textarea::placeholder,
 [role="dialog"] input::placeholder,
