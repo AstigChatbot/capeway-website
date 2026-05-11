@@ -654,8 +654,30 @@ textarea[readonly]::placeholder {
 
 input::placeholder,
 textarea::placeholder {
-  color: #7c8796;
+  color: #4f5f73;
   opacity: 1;
+}
+
+input,
+select,
+textarea,
+input:disabled,
+select:disabled,
+textarea:disabled,
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  text-shadow: none !important;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+input[readonly],
+select[readonly],
+textarea[readonly] {
+  color: #162033 !important;
+  -webkit-text-fill-color: #162033 !important;
 }
 
 .modal input,
@@ -680,23 +702,43 @@ textarea::placeholder {
 [role="dialog"] fieldset,
 .message-details fieldset,
 .details-modal fieldset,
+.modal label,
+[role="dialog"] label,
+.message-details label,
+.details-modal label,
 .modal .disabled,
 .modal .is-disabled,
+.modal [disabled],
+.modal [aria-disabled="true"],
+.modal [class*="disabled"],
+.modal [class*="opacity-"],
 .modal .opacity-40,
 .modal .opacity-50,
 .modal .opacity-60,
 [role="dialog"] .disabled,
 [role="dialog"] .is-disabled,
+[role="dialog"] [disabled],
+[role="dialog"] [aria-disabled="true"],
+[role="dialog"] [class*="disabled"],
+[role="dialog"] [class*="opacity-"],
 [role="dialog"] .opacity-40,
 [role="dialog"] .opacity-50,
 [role="dialog"] .opacity-60,
 .message-details .disabled,
 .message-details .is-disabled,
+.message-details [disabled],
+.message-details [aria-disabled="true"],
+.message-details [class*="disabled"],
+.message-details [class*="opacity-"],
 .message-details .opacity-40,
 .message-details .opacity-50,
 .message-details .opacity-60,
 .details-modal .disabled,
 .details-modal .is-disabled,
+.details-modal [disabled],
+.details-modal [aria-disabled="true"],
+.details-modal [class*="disabled"],
+.details-modal [class*="opacity-"],
 .details-modal .opacity-40,
 .details-modal .opacity-50,
 .details-modal .opacity-60 {
@@ -720,6 +762,19 @@ textarea::placeholder {
   text-shadow: 0 0 0 #0f1f33 !important;
   background-color: #ffffff !important;
   filter: none !important;
+  opacity: 1 !important;
+}
+
+.modal input[disabled]::placeholder,
+.modal textarea[disabled]::placeholder,
+[role="dialog"] input[disabled]::placeholder,
+[role="dialog"] textarea[disabled]::placeholder,
+.message-details input[disabled]::placeholder,
+.message-details textarea[disabled]::placeholder,
+.details-modal input[disabled]::placeholder,
+.details-modal textarea[disabled]::placeholder {
+  color: #0f1f33 !important;
+  -webkit-text-fill-color: #0f1f33 !important;
   opacity: 1 !important;
 }
 
