@@ -623,7 +623,30 @@ textarea {
   color: var(--color-ink);
   background: #fff;
   border-radius: 10px;
+  opacity: 1;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled,
+input[readonly],
+select[readonly],
+textarea[readonly],
+[aria-disabled="true"] input,
+[aria-disabled="true"] select,
+[aria-disabled="true"] textarea {
+  color: #162033;
+  -webkit-text-fill-color: #162033;
+  background: #ffffff;
+  border-color: rgba(16, 40, 68, 0.24);
+  opacity: 1;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #7c8796;
+  opacity: 1;
 }
 
 input[type="date"] {
@@ -2481,6 +2504,56 @@ address a {
 .admin-panel-highlight {
   border-color: rgba(183, 141, 82, 0.78);
   box-shadow: 0 0 0 5px rgba(183, 141, 82, 0.18), 0 18px 45px rgba(19, 30, 49, 0.08);
+}
+
+@media (prefers-color-scheme: dark) {
+  .admin-panel,
+  .booking-card,
+  .contact-form-front,
+  .reservation-modal-panel .booking-card,
+  .cookie-preferences-panel {
+    color: #243044;
+    background: #ffffff;
+  }
+
+  .admin-panel label,
+  .booking-card label,
+  .contact-form-front label,
+  .reservation-modal-panel label,
+  .cookie-preferences-panel label,
+  .admin-panel h1,
+  .admin-panel h2,
+  .admin-panel h3,
+  .booking-card h1,
+  .booking-card h2,
+  .booking-card h3,
+  .contact-form-front h1,
+  .contact-form-front h2,
+  .contact-form-front h3 {
+    color: #162033;
+  }
+
+  .admin-panel input,
+  .admin-panel select,
+  .admin-panel textarea,
+  .booking-card input,
+  .booking-card select,
+  .booking-card textarea,
+  .contact-form-front input,
+  .contact-form-front select,
+  .contact-form-front textarea,
+  .reservation-modal-panel input,
+  .reservation-modal-panel select,
+  .reservation-modal-panel textarea,
+  .cookie-preferences-panel input,
+  .cookie-preferences-panel select,
+  .cookie-preferences-panel textarea {
+    color: #162033;
+    -webkit-text-fill-color: #162033;
+    background: #ffffff;
+    border-color: rgba(16, 40, 68, 0.26);
+    opacity: 1;
+  }
 }
 
 @media (max-width: 1120px) {
