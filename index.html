@@ -150,7 +150,7 @@
   <header class="site-header" id="siteHeader">
     <div class="container nav-shell">
       <a class="brand" href="#home" aria-label="Capeway Inn & Suites home">
-        <img class="brand-logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn &amp; Suites logo" width="1672" height="941" decoding="async">
+        <img class="brand-logo" data-site-setting="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn &amp; Suites logo" width="1672" height="941" decoding="async">
       </a>
 
       <button class="menu-toggle" id="menuToggle" type="button" aria-controls="primaryMenu" aria-expanded="false">
@@ -952,14 +952,14 @@
       <div class="container contact-grid">
         <div class="contact-card reveal">
           <p class="eyebrow">Contact</p>
-          <h2>Capeway Inn &amp; Suites</h2>
+          <h2 data-site-setting="businessName">Capeway Inn &amp; Suites</h2>
           <p>A warm coastal base in St. Bride's for comfortable nights and scenic Newfoundland days.</p>
 
           <address>
-            <span>11 Main Street, Route 100, St. Bride's, NL A0B 2Z0</span>
-            <a href="tel:+17093372163">Tel: (709) 337-2163</a>
-            <a href="tel:+18663372163">Toll Free: 1-866-337-2163</a>
-            <a href="mailto:jk.cruz@inboxeen.com">jk.cruz@inboxeen.com</a>
+            <span data-site-setting="address">11 Main Street, Route 100, St. Bride's, NL A0B 2Z0</span>
+            <a data-site-setting="phone" href="tel:+17093372163">Tel: (709) 337-2163</a>
+            <a data-site-setting="tollFree" href="tel:+18663372163">Toll Free: 1-866-337-2163</a>
+            <a data-site-setting="email" href="mailto:jk.cruz@inboxeen.com">jk.cruz@inboxeen.com</a>
           </address>
 
           <div class="contact-card-media">
@@ -968,7 +968,7 @@
               alt="Capeway Inn exterior and surrounding property"
             decoding="async" loading="lazy">
             <div class="map-pin">
-              <strong>Capeway Inn &amp; Suites</strong>
+              <strong data-site-setting="businessName">Capeway Inn &amp; Suites</strong>
               <span>St. Bride's, Newfoundland</span>
             </div>
           </div>
@@ -1035,7 +1035,7 @@
     <div class="container footer-grid">
       <div>
         <a class="brand footer-brand" href="#home">
-          <img class="brand-logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn &amp; Suites logo" width="1672" height="941" decoding="async">
+          <img class="brand-logo" data-site-setting="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn &amp; Suites logo" width="1672" height="941" decoding="async">
         </a>
         <p>A warm coastal base in St. Bride's for comfortable nights and scenic Newfoundland days.</p>
       </div>
@@ -1046,12 +1046,13 @@
         <a href="#amenities">Amenities</a>
         <a href="#gallery">Gallery</a>
         <a href="policies.html">Policies &amp; Terms</a>
+        <a href="admin.html">Admin Settings</a>
       </div>
       <div>
         <h2>Contact</h2>
-        <a href="tel:+17093372163">(709) 337-2163</a>
-        <a href="tel:+18663372163">1-866-337-2163</a>
-        <a href="mailto:jk.cruz@inboxeen.com">jk.cruz@inboxeen.com</a>
+        <a data-site-setting="phone" href="tel:+17093372163">(709) 337-2163</a>
+        <a data-site-setting="tollFree" href="tel:+18663372163">1-866-337-2163</a>
+        <a data-site-setting="email" href="mailto:jk.cruz@inboxeen.com">jk.cruz@inboxeen.com</a>
       </div>
       <div>
         <h2>Ready to Visit?</h2>

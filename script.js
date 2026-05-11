@@ -8,6 +8,7 @@ const roomRates = {
 const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/6b7482c4-1562-4069-86e6-68638fa1fd7c";
 const QUICK_BOOKING_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/Reservation-Inquiries";
 const HERO_VIDEO_URL = "https://killerplayer.com/watch/video/4c544c8a-f1a1-4965-bf84-5bda1e6a5bc1";
+const SITE_SETTINGS_KEY = "capewaySiteSettings";
 let quickBookingFlipTimer;
 let contactFlipTimer;
 
@@ -45,6 +46,64 @@ const defaultCookieConsent = {
   marketing: false,
   preferences: false
 };
+
+const defaultSiteSettings = {
+  businessName: "Capeway Inn & Suites",
+  logoUrl: "assets/images/capeway-logo-inn-suites.webp",
+  address: "11 Main Street, Route 100, St. Bride's, NL A0B 2Z0",
+  phone: "(709) 337-2163",
+  tollFree: "1-866-337-2163",
+  email: "jk.cruz@inboxeen.com"
+};
+
+function readSiteSettings() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(SITE_SETTINGS_KEY) || "null");
+    return { ...defaultSiteSettings, ...(stored || {}) };
+  } catch (error) {
+    return { ...defaultSiteSettings };
+  }
+}
+
+function toPhoneHref(value) {
+  const phone = String(value || "").replace(/[^\d+]/g, "");
+  if (!phone) return "#contact";
+  if (phone.startsWith("+")) return `tel:${phone}`;
+  if (phone.length === 11 && phone.startsWith("1")) return `tel:+${phone}`;
+  return `tel:+1${phone}`;
+}
+
+function applySiteSettings() {
+  const settings = readSiteSettings();
+
+  document.querySelectorAll('[data-site-setting="businessName"]').forEach((element) => {
+    element.textContent = settings.businessName;
+  });
+
+  document.querySelectorAll('[data-site-setting="address"]').forEach((element) => {
+    element.textContent = settings.address;
+  });
+
+  document.querySelectorAll('[data-site-setting="phone"]').forEach((element) => {
+    element.textContent = element.closest("address") ? `Tel: ${settings.phone}` : settings.phone;
+    element.setAttribute("href", toPhoneHref(settings.phone));
+  });
+
+  document.querySelectorAll('[data-site-setting="tollFree"]').forEach((element) => {
+    element.textContent = element.closest("address") ? `Toll Free: ${settings.tollFree}` : settings.tollFree;
+    element.setAttribute("href", toPhoneHref(settings.tollFree));
+  });
+
+  document.querySelectorAll('[data-site-setting="email"]').forEach((element) => {
+    element.textContent = settings.email;
+    element.setAttribute("href", `mailto:${settings.email}`);
+  });
+
+  document.querySelectorAll('[data-site-setting="logo"]').forEach((image) => {
+    image.src = settings.logoUrl;
+    image.alt = `${settings.businessName} logo`;
+  });
+}
 
 function generateInquiryId() {
   const now = new Date();
@@ -228,6 +287,7 @@ function setupCookieConsent() {
 function init() {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
+  applySiteSettings();
   setDateMinimums();
   setupDatePickerActivation();
   setupHeroBookingPanel();

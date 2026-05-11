@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>Admin Settings | Capeway Inn & Suites</title>
+  <link rel="icon" href="/favicon.ico" sizes="any" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-page">
+  <main class="admin-shell" id="main">
+    <aside class="admin-sidebar" aria-label="Admin navigation">
+      <a class="admin-brand" href="index.html" aria-label="Back to site">
+        <img data-admin-preview="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn & Suites logo">
+      </a>
+
+      <nav class="admin-nav">
+        <a class="active" href="#business-settings">Business</a>
+        <a href="#password-reset">Password Reset</a>
+        <a href="index.html">View Site</a>
+      </nav>
+
+      <button class="admin-user" type="button" aria-label="Admin user settings">
+        <span class="admin-avatar">A</span>
+        <span>Admin User</span>
+      </button>
+    </aside>
+
+    <section class="admin-content">
+      <div class="admin-header">
+        <div>
+          <p class="eyebrow">Admin Settings</p>
+          <h1>Edit Site Details</h1>
+        </div>
+        <a class="btn btn-secondary" href="index.html">View Site</a>
+      </div>
+
+      <form class="admin-panel" id="businessSettingsForm">
+        <div class="admin-panel-heading" id="business-settings">
+          <h2>Business Profile</h2>
+          <p>Saved details are applied to the logo, address, phone numbers, and email shown on this browser.</p>
+        </div>
+
+        <div class="admin-form-grid">
+          <label>
+            <span>Business Name</span>
+            <input type="text" id="businessName" name="businessName" required />
+          </label>
+
+          <label>
+            <span>Logo URL or Path</span>
+            <input type="text" id="logoUrl" name="logoUrl" required />
+          </label>
+
+          <label class="wide-field">
+            <span>Address</span>
+            <textarea id="address" name="address" rows="3" required></textarea>
+          </label>
+
+          <label>
+            <span>Contact Number</span>
+            <input type="tel" id="phone" name="phone" required />
+          </label>
+
+          <label>
+            <span>Toll Free Number</span>
+            <input type="tel" id="tollFree" name="tollFree" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input type="email" id="email" name="email" required />
+          </label>
+        </div>
+
+        <div class="admin-preview">
+          <img data-admin-preview="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn & Suites logo">
+          <div>
+            <strong data-admin-preview="businessName">Capeway Inn & Suites</strong>
+            <span data-admin-preview="address">11 Main Street, Route 100, St. Bride's, NL A0B 2Z0</span>
+            <span data-admin-preview="phone">(709) 337-2163</span>
+            <span data-admin-preview="email">jk.cruz@inboxeen.com</span>
+          </div>
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn-primary" type="submit">Save Changes</button>
+          <button class="btn btn-secondary" type="button" id="resetSettings">Reset Defaults</button>
+          <p class="form-status" id="settingsStatus" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <form class="admin-panel" id="passwordResetForm">
+        <div class="admin-panel-heading" id="password-reset">
+          <h2>Password Reset</h2>
+          <p>This static site records reset requests locally. Connect this form to your auth provider before using it for live account resets.</p>
+        </div>
+
+        <div class="admin-form-grid">
+          <label>
+            <span>Account Email</span>
+            <input type="email" id="resetEmail" name="resetEmail" autocomplete="email" required />
+          </label>
+
+          <label>
+            <span>Reset Note</span>
+            <input type="text" id="resetNote" name="resetNote" placeholder="Reason or requester name" />
+          </label>
+        </div>
+
+        <div class="admin-actions">
+          <button class="btn btn-primary" type="submit">Save Reset Request</button>
+          <p class="form-status" id="resetStatus" aria-live="polite"></p>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="admin.js" defer></script>
+</body>
+</html>
