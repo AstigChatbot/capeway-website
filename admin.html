@@ -11,12 +11,12 @@
 <body class="admin-page">
   <main class="admin-shell" id="main">
     <aside class="admin-sidebar" aria-label="Admin navigation">
-      <a class="admin-brand" href="index.html" aria-label="Back to site">
+      <a class="admin-brand" href="#business-settings" aria-label="Edit logo" data-edit-business>
         <img data-admin-preview="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn & Suites logo">
       </a>
 
       <nav class="admin-nav">
-        <a class="active" href="#business-settings">Business</a>
+        <a class="active" href="#business-settings" data-edit-business>Business</a>
         <a href="#password-reset">Password Reset</a>
         <a href="index.html">View Site</a>
       </nav>
@@ -74,7 +74,7 @@
           </label>
         </div>
 
-        <div class="admin-preview">
+        <button class="admin-preview" type="button" data-edit-business aria-label="Edit business profile">
           <img data-admin-preview="logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn & Suites logo">
           <div>
             <strong data-admin-preview="businessName">Capeway Inn & Suites</strong>
@@ -82,7 +82,7 @@
             <span data-admin-preview="phone">(709) 337-2163</span>
             <span data-admin-preview="email">jk.cruz@inboxeen.com</span>
           </div>
-        </div>
+        </button>
 
         <div class="admin-actions">
           <button class="btn btn-primary" type="submit">Save Changes</button>
@@ -117,6 +117,6 @@
     </section>
   </main>
 
-  <script src="admin.js" defer></script>
+  <script src="admin.js?v=3" defer></script>
 </body>
 </html>

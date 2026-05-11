@@ -2429,11 +2429,20 @@ address a {
   grid-template-columns: 170px minmax(0, 1fr);
   gap: 20px;
   align-items: center;
+  width: 100%;
   margin-top: 22px;
   padding: 18px;
   background: #f7f2ea;
   border: 1px solid rgba(22, 32, 51, 0.1);
   border-radius: 8px;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-preview:hover {
+  border-color: rgba(183, 141, 82, 0.72);
+  box-shadow: 0 12px 28px rgba(19, 30, 49, 0.1);
 }
 
 .admin-preview img {
@@ -2467,6 +2476,11 @@ address a {
   margin: 0;
   color: var(--color-brand);
   font-weight: 800;
+}
+
+.admin-panel-highlight {
+  border-color: rgba(183, 141, 82, 0.78);
+  box-shadow: 0 0 0 5px rgba(183, 141, 82, 0.18), 0 18px 45px rgba(19, 30, 49, 0.08);
 }
 
 @media (max-width: 1120px) {

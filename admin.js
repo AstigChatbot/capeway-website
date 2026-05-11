@@ -17,6 +17,7 @@ const resetStatus = document.getElementById("resetStatus");
 const resetSettingsButton = document.getElementById("resetSettings");
 const adminUserButton = document.querySelector(".admin-user");
 const adminNavLinks = document.querySelectorAll(".admin-nav a");
+const editBusinessTriggers = document.querySelectorAll("[data-edit-business]");
 
 function readSiteSettings() {
   try {
@@ -90,6 +91,13 @@ function showStatus(element, message) {
   }, 4000);
 }
 
+function highlightBusinessForm() {
+  businessForm.classList.add("admin-panel-highlight");
+  window.setTimeout(() => {
+    businessForm.classList.remove("admin-panel-highlight");
+  }, 1400);
+}
+
 function setActiveAdminSection(targetHash) {
   adminNavLinks.forEach((link) => {
     link.classList.toggle("active", link.getAttribute("href") === targetHash);
@@ -98,7 +106,9 @@ function setActiveAdminSection(targetHash) {
 
 function openBusinessSettings() {
   setActiveAdminSection("#business-settings");
-  document.getElementById("business-settings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  businessForm.scrollIntoView({ behavior: "smooth", block: "start" });
+  highlightBusinessForm();
+  showStatus(settingsStatus, "Editing business profile. Update the logo, address, phone, and email below.");
 
   window.setTimeout(() => {
     businessForm.logoUrl.focus({ preventScroll: true });
@@ -110,6 +120,13 @@ adminNavLinks.forEach((link) => {
   link.addEventListener("click", () => {
     const hash = link.getAttribute("href");
     if (hash?.startsWith("#")) setActiveAdminSection(hash);
+  });
+});
+
+editBusinessTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", (event) => {
+    event.preventDefault();
+    openBusinessSettings();
   });
 });
 
