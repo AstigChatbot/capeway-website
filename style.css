@@ -636,17 +636,57 @@ textarea[readonly],
 [aria-disabled="true"] input,
 [aria-disabled="true"] select,
 [aria-disabled="true"] textarea {
-  color: #162033;
-  -webkit-text-fill-color: #162033;
-  background: #ffffff;
-  border-color: rgba(16, 40, 68, 0.24);
-  opacity: 1;
+  color: #162033 !important;
+  -webkit-text-fill-color: #162033 !important;
+  background: #ffffff !important;
+  border-color: rgba(16, 40, 68, 0.28) !important;
+  opacity: 1 !important;
+}
+
+input:disabled::placeholder,
+textarea:disabled::placeholder,
+input[readonly]::placeholder,
+textarea[readonly]::placeholder {
+  color: #162033 !important;
+  -webkit-text-fill-color: #162033 !important;
+  opacity: 1 !important;
 }
 
 input::placeholder,
 textarea::placeholder {
   color: #7c8796;
   opacity: 1;
+}
+
+.modal input,
+.modal select,
+.modal textarea,
+[role="dialog"] input,
+[role="dialog"] select,
+[role="dialog"] textarea,
+.message-details input,
+.message-details select,
+.message-details textarea,
+.details-modal input,
+.details-modal select,
+.details-modal textarea {
+  color: #162033 !important;
+  -webkit-text-fill-color: #162033 !important;
+  background-color: #ffffff !important;
+  opacity: 1 !important;
+}
+
+.modal input::placeholder,
+.modal textarea::placeholder,
+[role="dialog"] input::placeholder,
+[role="dialog"] textarea::placeholder,
+.message-details input::placeholder,
+.message-details textarea::placeholder,
+.details-modal input::placeholder,
+.details-modal textarea::placeholder {
+  color: #4f5f73 !important;
+  -webkit-text-fill-color: #4f5f73 !important;
+  opacity: 1 !important;
 }
 
 input[type="date"] {
