@@ -54,7 +54,7 @@ function doGet(event) {
   if (action === "getPublicRoomTypes") {
     return jsonResponse({
       success: true,
-      roomTypes: getPublicRoomTypes()
+      data: getPublicRoomTypes()
     });
   }
 
@@ -99,14 +99,19 @@ function getPublicRoomTypes() {
 
     return {
       id: roomType.id,
+      type: roomType.type || roomType.id,
       name: roomType.name,
       description: roomType.description,
       rate: nightlyRate,
+      pricePerNight: nightlyRate,
       nightlyRate,
+      pricePerWeek: nightlyRate * 7 * 0.9,
       weeklyRate: nightlyRate * 7 * 0.9,
+      pricePerMonth: nightlyRate * 30 * 0.8,
       monthlyRate: nightlyRate * 30 * 0.8,
       totalRooms,
       availableRooms: availableRooms.length,
+      image: roomType.imageUrl,
       imageUrl: roomType.imageUrl,
       amenities: String(roomType.amenities || "")
         .split(",")

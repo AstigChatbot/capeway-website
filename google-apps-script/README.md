@@ -19,7 +19,7 @@ Deploy the Apps Script as a web app and call:
 https://script.google.com/macros/s/YOUR_DEPLOYMENT_ID/exec?action=getPublicRoomTypes
 ```
 
-The response returns `roomTypes` with nightly, weekly, monthly, total-room, and available-room fields for the website cards and price calculator.
+The response returns `{ "success": true, "data": [...] }` with the same public room fields used by the source Apps Script app: `type`, `name`, `pricePerNight`, `pricePerWeek`, `pricePerMonth`, `availableRooms`, `totalRooms`, `image`, and `amenities`.
 
 ## Posts
 

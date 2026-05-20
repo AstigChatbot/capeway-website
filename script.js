@@ -1,4 +1,6 @@
-const roomCatalog = [
+const APPS_SCRIPT_ROOM_DATA_URL = "https://script.google.com/macros/s/AKfycbwhMgdV9eVMkcKvfGoxqQrgjKzDheOX8qM8hOu78v_H20OCd8vfGrcn2QDZt9Cc-cRY/exec?action=getPublicRoomTypes";
+
+let roomCatalog = [
   {
     id: "deluxe",
     name: "Deluxe Room",
@@ -45,10 +47,7 @@ const roomCatalog = [
   }
 ];
 
-const roomRates = roomCatalog.reduce((rates, room) => {
-  rates[room.id] = { name: room.name, rate: room.rate };
-  return rates;
-}, {});
+let roomRates = createRoomRates(roomCatalog);
 
 const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/6b7482c4-1562-4069-86e6-68638fa1fd7c";
 const QUICK_BOOKING_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/Reservation-Inquiries";
@@ -343,8 +342,7 @@ function init() {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   applySiteSettings();
-  setupRoomsShowcase();
-  setupPriceCalculator();
+  setupRoomsExperience();
   setDateMinimums();
   setupDatePickerActivation();
   setupHeroBookingPanel();
@@ -364,6 +362,95 @@ function init() {
   setupCookieConsent();
 }
 
+function createRoomRates(rooms) {
+  return rooms.reduce((rates, room) => {
+    rates[room.id] = { name: room.name, rate: room.rate };
+    return rates;
+  }, {});
+}
+
+function normalizeRoomType(room, index) {
+  const type = String(room.type || room.id || room.name || `room-${index + 1}`).trim();
+  const id = type.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || `room-${index + 1}`;
+  const nightlyRate = Number(room.pricePerNight || room.nightlyRate || room.rate || 0);
+  const totalRooms = Number(room.totalRooms || room.total || 0);
+  const availableRooms = Number(room.availableRooms || room.available || 0);
+  const fallback = roomCatalog.find((item) => item.id === id) || roomCatalog[index] || roomCatalog[0];
+
+  return {
+    id,
+    sourceType: type,
+    name: room.name || `${type} Room`,
+    rate: nightlyRate || fallback?.rate || 0,
+    totalRooms,
+    availableRooms,
+    image: room.image || room.imageUrl || fallback?.image || "",
+    imageAlt: `${room.name || type} at Capeway Inn`,
+    description: room.description || fallback?.description || "Comfortable accommodation with essential amenities for a pleasant stay.",
+    amenities: Array.isArray(room.amenities)
+      ? room.amenities
+      : String(room.amenities || "")
+        .split(",")
+        .map((amenity) => amenity.trim())
+        .filter(Boolean),
+    pricePerWeek: Number(room.pricePerWeek || room.weeklyRate || 0),
+    pricePerMonth: Number(room.pricePerMonth || room.monthlyRate || 0)
+  };
+}
+
+async function loadRoomCatalogFromAppsScript() {
+  try {
+    const response = await fetch(APPS_SCRIPT_ROOM_DATA_URL, {
+      headers: { "Accept": "application/json" },
+      cache: "no-store"
+    });
+    const contentType = response.headers.get("content-type") || "";
+    if (!response.ok || !contentType.includes("application/json")) return null;
+
+    const result = await response.json();
+    const rows = Array.isArray(result.data)
+      ? result.data
+      : Array.isArray(result.roomTypes)
+        ? result.roomTypes
+        : Array.isArray(result)
+          ? result
+          : [];
+
+    return rows.length ? rows.map(normalizeRoomType) : null;
+  } catch (error) {
+    console.warn("Could not load Apps Script room data:", error);
+    return null;
+  }
+}
+
+async function setupRoomsExperience() {
+  if (!selectors.roomsLiveGrid && !selectors.calculatorRoomType) return;
+
+  const liveRooms = await loadRoomCatalogFromAppsScript();
+  if (liveRooms) {
+    roomCatalog = liveRooms;
+    roomRates = createRoomRates(roomCatalog);
+    syncQuickRoomOptions();
+  }
+
+  setupRoomsShowcase();
+  setupPriceCalculator();
+}
+
+function syncQuickRoomOptions() {
+  const select = document.getElementById("quickRoomType");
+  if (!select || !roomCatalog.length) return;
+
+  const currentValue = select.value;
+  select.innerHTML = [
+    '<option value="">Select room</option>',
+    ...roomCatalog.map((room) => `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)}</option>`)
+  ].join("");
+  if (roomCatalog.some((room) => room.id === currentValue)) {
+    select.value = currentValue;
+  }
+}
+
 function formatMoney(value, options = {}) {
   const amount = Number(value) || 0;
   const minimumFractionDigits = options.forceCents ? 2 : 0;
@@ -372,20 +459,23 @@ function formatMoney(value, options = {}) {
 }
 
 function getRoomBadge(room) {
-  if (room.availableRooms <= 0) {
+  const totalRooms = Number(room.totalRooms) || 0;
+  const availableRooms = Number(room.availableRooms) || 0;
+
+  if (totalRooms > 0 && availableRooms <= 0) {
     return { label: "Fully Booked", type: "danger" };
   }
 
   return {
-    label: `${room.availableRooms}/${room.totalRooms} Available`,
-    type: room.availableRooms === room.totalRooms ? "success" : "warning"
+    label: totalRooms > 0 ? `${availableRooms}/${totalRooms} Available` : "Available",
+    type: totalRooms > 0 && availableRooms < totalRooms ? "warning" : "success"
   };
 }
 
 function getRoomPricing(room) {
   const nightly = Number(room.rate) || 0;
-  const weekly = nightly * 7 * 0.9;
-  const monthly = nightly * 30 * 0.8;
+  const weekly = Number(room.pricePerWeek) || nightly * 7 * 0.9;
+  const monthly = Number(room.pricePerMonth) || nightly * 30 * 0.8;
   return { nightly, weekly, monthly };
 }
 
@@ -444,9 +534,13 @@ function calculateRoomStay(room, duration, quantity) {
 function setupPriceCalculator() {
   if (!selectors.calculatorRoomType || !selectors.calculatorDuration || !selectors.calculatorQuantity) return;
 
+  const currentValue = selectors.calculatorRoomType.value;
   selectors.calculatorRoomType.innerHTML = roomCatalog.map((room) => (
     `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)} - ${formatMoney(room.rate)}/night</option>`
   )).join("");
+  if (roomCatalog.some((room) => room.id === currentValue)) {
+    selectors.calculatorRoomType.value = currentValue;
+  }
 
   const updateCalculator = () => {
     const room = roomCatalog.find((item) => item.id === selectors.calculatorRoomType.value) || roomCatalog[0];
