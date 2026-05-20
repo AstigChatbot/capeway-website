@@ -14,4 +14,4 @@
   Cache-Control: public, max-age=0, must-revalidate
 
 /script.js
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=604800

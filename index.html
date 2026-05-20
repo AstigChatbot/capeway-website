@@ -45,7 +45,7 @@
       transform: translateY(0);
     }
   </style>
-  <link rel="stylesheet" href="style.css?v=20260521-1" />
+  <link rel="stylesheet" href="style.css?v=20260512-4" />
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -406,77 +406,72 @@
       </div>
     </section>
 
-    <section class="section rooms-section rooms-showcase" id="rooms">
+    <section class="section rooms-section" id="rooms">
       <div class="container">
         <div class="section-heading reveal">
           <p class="eyebrow">Rooms &amp; Suites</p>
-          <h2>Our Rooms &amp; Suites</h2>
+          <h2>Choose the room that fits the shape of your trip.</h2>
           <p>
-            Choose from our selection of beautifully appointed accommodations
-            <span class="live-data-note">All data fetched in real-time</span>
+            Every stay includes private en-suite comfort, free Wi-Fi, television, fresh linens, and the reassuring ease of a well-prepared room.
           </p>
         </div>
 
-        <div class="rooms-live-grid" id="roomsLiveGrid" aria-live="polite"></div>
+        <div class="room-grid">
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img width="1800" height="1200"
+                src="assets/gallery-enhanced/img_0844-enhanced.webp"
+                alt="Standard Capeway Inn room with sofa and kitchenette"
+              decoding="async" loading="lazy">
+            </div>
+            <div class="room-body">
+              <div class="room-meta">
+                <span class="room-tag">Standard Room</span>
+                <strong>$119 / Night</strong>
+              </div>
+              <h3>Standard Room</h3>
+              <p>A bright, comfortable base for one or two guests with the essentials close at hand.</p>
+              <a class="btn btn-secondary" href="#reservation-request">Reservation</a>
+            </div>
+          </article>
 
-      </div>
-    </section>
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img width="1800" height="1200"
+                src="assets/gallery-enhanced/img_0836-enhanced.webp"
+                alt="Capeway Inn hallway with guest room doors"
+              decoding="async" loading="lazy">
+            </div>
+            <div class="room-body">
+              <div class="room-meta">
+                <span class="room-tag">Deluxe Room</span>
+                <strong>$139 / Night</strong>
+              </div>
+              <h3>Deluxe Room</h3>
+              <p>Extra room to unwind, ideal for travelers who appreciate a little more quiet and comfort.</p>
+              <a class="btn btn-secondary" href="#reservation-request">Reservation</a>
+            </div>
+          </article>
 
-    <section class="price-calculator-section" id="price-calculator" aria-labelledby="priceCalculatorTitle">
-      <div class="container">
-        <div class="price-calculator-heading reveal">
-          <h2 id="priceCalculatorTitle">Price Calculator</h2>
-          <p>Calculate your stay cost instantly</p>
+          <article class="room-card reveal">
+            <div class="room-image">
+              <img width="1800" height="1200"
+                src="assets/gallery-enhanced/img_0835-enhanced.webp"
+                alt="Family suite living area with sofa at Capeway Inn"
+              decoding="async" loading="lazy">
+            </div>
+            <div class="room-body">
+              <div class="room-meta">
+                <span class="room-tag">Family Suite</span>
+                <strong>$159 / Night</strong>
+              </div>
+              <h3>Family Suite</h3>
+              <p>A flexible suite for families or small groups who want space to spread out after a day outside.</p>
+              <a class="btn btn-secondary" href="#reservation-request">Reservation</a>
+            </div>
+          </article>
         </div>
 
-        <div class="price-calculator-card reveal">
-          <div class="calculator-controls">
-            <label class="calculator-field" for="calculatorRoomType">
-              <span>Room Type</span>
-              <select id="calculatorRoomType"></select>
-            </label>
-
-            <label class="calculator-field" for="calculatorDuration">
-              <span>Duration</span>
-              <select id="calculatorDuration">
-                <option value="nightly">Per Night</option>
-                <option value="weekly">Weekly (10% off)</option>
-                <option value="monthly">Monthly (20% off)</option>
-              </select>
-            </label>
-
-            <label class="calculator-field" for="calculatorQuantity">
-              <span>Quantity</span>
-              <input id="calculatorQuantity" type="number" min="1" max="30" value="1" inputmode="numeric">
-            </label>
-          </div>
-
-          <div class="calculator-summary" aria-live="polite">
-            <div class="calculator-result">
-              <span>Rate/Night</span>
-              <strong id="calculatorRate">$0</strong>
-            </div>
-            <div class="calculator-result">
-              <span>Total Nights</span>
-              <strong id="calculatorNights">1</strong>
-            </div>
-            <div class="calculator-result">
-              <span>Subtotal</span>
-              <strong id="calculatorSubtotal">$0.00</strong>
-            </div>
-            <div class="calculator-result">
-              <span>Discount</span>
-              <strong id="calculatorDiscount">-</strong>
-            </div>
-          </div>
-
-          <div class="calculator-total">
-            <span>Total Amount</span>
-            <strong id="calculatorTotal">$0.00</strong>
-          </div>
-
-          <a class="calculator-book-button" href="#reservation-request" id="calculatorBookNow">Book Now</a>
-        </div>
       </div>
     </section>
 
@@ -1150,6 +1145,6 @@
     </div>
   </div>
 
-  <script src="script.js?v=20260521-1" defer></script>
+  <script src="script.js" defer></script>
 </body>
 </html>

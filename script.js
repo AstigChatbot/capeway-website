@@ -1,54 +1,9 @@
-const roomCatalog = [
-  {
-    id: "deluxe",
-    name: "Deluxe Room",
-    rate: 139,
-    totalRooms: 1,
-    availableRooms: 0,
-    image: "assets/gallery-enhanced/img_0836-enhanced.webp",
-    imageAlt: "Deluxe Capeway Inn guest room with warm lighting",
-    description: "Spacious room with premium furnishings and a quiet coastal base.",
-    amenities: ["Free WiFi", "Cable TV", "Mini Bar", "Balcony"]
-  },
-  {
-    id: "standard",
-    name: "Standard Room",
-    rate: 119,
-    totalRooms: 1,
-    availableRooms: 1,
-    image: "assets/gallery-enhanced/img_0844-enhanced.webp",
-    imageAlt: "Standard Capeway Inn room with sofa and kitchenette",
-    description: "Comfortable and cozy room with essential amenities for a pleasant stay.",
-    amenities: ["Free WiFi", "A/C", "TV", "Room Service"]
-  },
-  {
-    id: "family",
-    name: "Family Suite",
-    rate: 159,
-    totalRooms: 1,
-    availableRooms: 1,
-    image: "assets/gallery-enhanced/img_0835-enhanced.webp",
-    imageAlt: "Family suite living area with sofa at Capeway Inn",
-    description: "Flexible suite for families or small groups who want more room to settle in.",
-    amenities: ["Free WiFi", "Kitchenette", "Cable TV", "Sleeper Sofa"]
-  },
-  {
-    id: "extended",
-    name: "Extended Stay Suite",
-    rate: 169,
-    totalRooms: 1,
-    availableRooms: 1,
-    image: "assets/gallery-enhanced/img_0834-enhanced.webp",
-    imageAlt: "Capeway Inn extended stay room corridor and sitting bench",
-    description: "A longer-stay option with extra comfort for work trips and coastal visits.",
-    amenities: ["Free WiFi", "Workspace", "Weekly Rate", "Monthly Rate"]
-  }
-];
-
-const roomRates = roomCatalog.reduce((rates, room) => {
-  rates[room.id] = { name: room.name, rate: room.rate };
-  return rates;
-}, {});
+const roomRates = {
+  standard: { name: "Standard Room", rate: 119 },
+  deluxe: { name: "Deluxe Room", rate: 139 },
+  family: { name: "Family Suite", rate: 159 },
+  extended: { name: "Extended Stay Suite", rate: 169 }
+};
 
 const CONTACT_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/6b7482c4-1562-4069-86e6-68638fa1fd7c";
 const QUICK_BOOKING_WEBHOOK_URL = "https://n8n.srv1291312.hstgr.cloud/webhook/Reservation-Inquiries";
@@ -81,17 +36,7 @@ const selectors = {
   lightboxClose: document.getElementById("lightboxClose"),
   cookieConsent: document.getElementById("cookieConsent"),
   cookiePreferencesModal: document.getElementById("cookiePreferencesModal"),
-  scrollTopButton: document.getElementById("scrollTopButton"),
-  roomsLiveGrid: document.getElementById("roomsLiveGrid"),
-  calculatorRoomType: document.getElementById("calculatorRoomType"),
-  calculatorDuration: document.getElementById("calculatorDuration"),
-  calculatorQuantity: document.getElementById("calculatorQuantity"),
-  calculatorRate: document.getElementById("calculatorRate"),
-  calculatorNights: document.getElementById("calculatorNights"),
-  calculatorSubtotal: document.getElementById("calculatorSubtotal"),
-  calculatorDiscount: document.getElementById("calculatorDiscount"),
-  calculatorTotal: document.getElementById("calculatorTotal"),
-  calculatorBookNow: document.getElementById("calculatorBookNow")
+  scrollTopButton: document.getElementById("scrollTopButton")
 };
 
 const COOKIE_CONSENT_KEY = "capewayCookieConsent";
@@ -343,8 +288,6 @@ function init() {
   const year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
   applySiteSettings();
-  setupRoomsShowcase();
-  setupPriceCalculator();
   setDateMinimums();
   setupDatePickerActivation();
   setupHeroBookingPanel();
@@ -362,116 +305,6 @@ function init() {
   setupScrollTopButton();
   setupRevealObserver();
   setupCookieConsent();
-}
-
-function formatMoney(value, options = {}) {
-  const amount = Number(value) || 0;
-  const minimumFractionDigits = options.forceCents ? 2 : 0;
-  const maximumFractionDigits = options.forceCents ? 2 : 2;
-  return `$${amount.toLocaleString("en-US", { minimumFractionDigits, maximumFractionDigits })}`;
-}
-
-function getRoomBadge(room) {
-  if (room.availableRooms <= 0) {
-    return { label: "Fully Booked", type: "danger" };
-  }
-
-  return {
-    label: `${room.availableRooms}/${room.totalRooms} Available`,
-    type: room.availableRooms === room.totalRooms ? "success" : "warning"
-  };
-}
-
-function getRoomPricing(room) {
-  const nightly = Number(room.rate) || 0;
-  const weekly = nightly * 7 * 0.9;
-  const monthly = nightly * 30 * 0.8;
-  return { nightly, weekly, monthly };
-}
-
-function setupRoomsShowcase() {
-  if (!selectors.roomsLiveGrid) return;
-
-  selectors.roomsLiveGrid.innerHTML = roomCatalog.map((room) => {
-    const badge = getRoomBadge(room);
-    const pricing = getRoomPricing(room);
-    const amenities = room.amenities.map((amenity) => (
-      `<span class="live-room-amenity">${escapeHtml(amenity)}</span>`
-    )).join("");
-
-    return `
-      <article class="live-room-card reveal">
-        <div class="live-room-image">
-          <img width="1800" height="1200" src="${escapeHtml(room.image)}" alt="${escapeHtml(room.imageAlt)}" decoding="async" loading="lazy">
-          <span class="live-room-badge live-room-badge-${badge.type}">${escapeHtml(badge.label)}</span>
-        </div>
-        <div class="live-room-body">
-          <h3>${escapeHtml(room.name)}</h3>
-          <p>${escapeHtml(room.description)}</p>
-          <div class="live-room-amenities">${amenities}</div>
-          <div class="live-room-prices">
-            <div><span>Per Night</span><strong>${formatMoney(pricing.nightly)}</strong></div>
-            <div><span>Weekly (10% off)</span><strong>${formatMoney(pricing.weekly, { forceCents: true })}</strong></div>
-            <div><span>Monthly (20% off)</span><strong>${formatMoney(pricing.monthly, { forceCents: true })}</strong></div>
-          </div>
-        </div>
-      </article>
-    `;
-  }).join("");
-}
-
-function calculateRoomStay(room, duration, quantity) {
-  const count = Math.max(1, Number.parseInt(quantity, 10) || 1);
-  const nightlyRate = Number(room.rate) || 0;
-  const durationMap = {
-    nightly: { nights: count, discountRate: 0 },
-    weekly: { nights: count * 7, discountRate: 0.1 },
-    monthly: { nights: count * 30, discountRate: 0.2 }
-  };
-  const details = durationMap[duration] || durationMap.nightly;
-  const subtotal = nightlyRate * details.nights;
-  const discount = subtotal * details.discountRate;
-
-  return {
-    nightlyRate,
-    nights: details.nights,
-    subtotal,
-    discount,
-    total: subtotal - discount
-  };
-}
-
-function setupPriceCalculator() {
-  if (!selectors.calculatorRoomType || !selectors.calculatorDuration || !selectors.calculatorQuantity) return;
-
-  selectors.calculatorRoomType.innerHTML = roomCatalog.map((room) => (
-    `<option value="${escapeHtml(room.id)}">${escapeHtml(room.name)} - ${formatMoney(room.rate)}/night</option>`
-  )).join("");
-
-  const updateCalculator = () => {
-    const room = roomCatalog.find((item) => item.id === selectors.calculatorRoomType.value) || roomCatalog[0];
-    const pricing = calculateRoomStay(room, selectors.calculatorDuration.value, selectors.calculatorQuantity.value);
-
-    selectors.calculatorRate.textContent = formatMoney(pricing.nightlyRate);
-    selectors.calculatorNights.textContent = String(pricing.nights);
-    selectors.calculatorSubtotal.textContent = formatMoney(pricing.subtotal, { forceCents: true });
-    selectors.calculatorDiscount.textContent = pricing.discount > 0
-      ? `-${formatMoney(pricing.discount, { forceCents: true })}`
-      : "-";
-    selectors.calculatorTotal.textContent = formatMoney(pricing.total, { forceCents: true });
-  };
-
-  [selectors.calculatorRoomType, selectors.calculatorDuration, selectors.calculatorQuantity].forEach((control) => {
-    control.addEventListener("input", updateCalculator);
-    control.addEventListener("change", updateCalculator);
-  });
-
-  selectors.calculatorBookNow?.addEventListener("click", () => {
-    const selectedRoom = document.getElementById("quickRoomType");
-    if (selectedRoom) selectedRoom.value = selectors.calculatorRoomType.value;
-  });
-
-  updateCalculator();
 }
 
 function setDateMinimums() {
