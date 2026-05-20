@@ -705,7 +705,7 @@ function setupContactForm() {
     clearErrors(selectors.contactForm);
 
     const requiredFields = [
-      { id: "contactName", message: "Please enter your first name." },
+      { id: "contactName", message: "Please enter your name." },
       { id: "contactEmail", message: "Please enter your email address." },
       { id: "contactSubject", message: "Please add a subject." },
       { id: "contactMessage", message: "Please enter your inquiry." }
