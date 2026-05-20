@@ -706,7 +706,6 @@ function setupContactForm() {
 
     const requiredFields = [
       { id: "contactName", message: "Please enter your first name." },
-      { id: "contactLastName", message: "Please enter your last name." },
       { id: "contactEmail", message: "Please enter your email address." },
       { id: "contactSubject", message: "Please add a subject." },
       { id: "contactMessage", message: "Please enter your inquiry." }
@@ -741,11 +740,9 @@ function setupContactForm() {
 
     const submitButton = selectors.contactForm.querySelector('button[type="submit"]');
     const firstName = document.getElementById("contactName").value.trim();
-    const lastName = document.getElementById("contactLastName").value.trim();
     const payload = {
-      name: `${firstName} ${lastName}`,
+      name: firstName,
       firstName,
-      lastName,
       email: email.value.trim(),
       phone: phone.value.trim(),
       subject: document.getElementById("contactSubject").value.trim(),
