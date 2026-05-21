@@ -76,6 +76,10 @@ const selectors = {
   reservationModal: document.getElementById("reservationModal"),
   reservationModalPanel: document.getElementById("reservationModalPanel"),
   reservationModalClose: document.getElementById("reservationModalClose"),
+  loginModal: document.getElementById("loginModal"),
+  loginModalClose: document.getElementById("loginModalClose"),
+  loginModalForm: document.getElementById("loginModalForm"),
+  loginModalStatus: document.getElementById("loginModalStatus"),
   lightbox: document.getElementById("lightbox"),
   lightboxImage: document.getElementById("lightboxImage"),
   lightboxClose: document.getElementById("lightboxClose"),
@@ -349,6 +353,7 @@ function init() {
   setupDatePickerActivation();
   setupHeroBookingPanel();
   setupFooterReservationModal();
+  setupLoginModal();
   setupNavigation();
   handleHeaderScroll();
   setupQuickBooking();
@@ -472,6 +477,58 @@ function setupPriceCalculator() {
   });
 
   updateCalculator();
+}
+
+function setupLoginModal() {
+  if (!selectors.loginModal) return;
+
+  const openModal = () => {
+    selectors.loginModal.classList.add("active");
+    selectors.loginModal.setAttribute("aria-hidden", "false");
+    document.body.classList.add("login-modal-open");
+    selectors.loginModalStatus.textContent = "";
+    document.getElementById("loginEmail")?.focus();
+  };
+
+  const closeModal = () => {
+    selectors.loginModal.classList.remove("active");
+    selectors.loginModal.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("login-modal-open");
+    selectors.loginModalStatus.textContent = "";
+  };
+
+  document.querySelectorAll("[data-login-open]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+      event.preventDefault();
+      openModal();
+    });
+  });
+
+  document.querySelectorAll("[data-login-close]").forEach((button) => {
+    button.addEventListener("click", closeModal);
+  });
+
+  selectors.loginModalClose?.addEventListener("click", closeModal);
+  selectors.loginModal.addEventListener("click", (event) => {
+    if (event.target === selectors.loginModal) closeModal();
+  });
+
+  selectors.loginModalForm?.addEventListener("submit", (event) => {
+    event.preventDefault();
+    selectors.loginModalStatus.textContent = "Secure login backend is hosted in the hotel system. Use the hosted admin app if credentials need to be verified.";
+  });
+
+  document.querySelectorAll("[data-login-action]").forEach((button) => {
+    button.addEventListener("click", () => {
+      selectors.loginModalStatus.textContent = "Account and password actions are handled by the hosted hotel system.";
+    });
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && selectors.loginModal.classList.contains("active")) {
+      closeModal();
+    }
+  });
 }
 
 function setDateMinimums() {

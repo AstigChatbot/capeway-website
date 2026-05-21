@@ -42,6 +42,10 @@ body.reservation-modal-open {
   overflow: hidden;
 }
 
+body.login-modal-open {
+  overflow: hidden;
+}
+
 img {
   display: block;
   max-width: 100%;
@@ -2476,6 +2480,157 @@ address a {
   font-size: 1.6rem;
 }
 
+.login-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 98;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: #07325d;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+
+.login-modal.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.login-modal-panel {
+  position: relative;
+  width: min(100%, 450px);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  padding: 36px 44px 40px;
+  color: #263244;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.28);
+}
+
+.login-modal-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  color: #415063;
+  background: transparent;
+  border: 0;
+  font-size: 1.35rem;
+}
+
+.login-modal-logo {
+  width: min(100%, 280px);
+  height: 110px;
+  margin: 0 auto 22px;
+  object-fit: contain;
+}
+
+.login-modal-form {
+  display: grid;
+  gap: 16px;
+}
+
+.login-modal-form label {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.login-modal-form span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #263244;
+  font-size: 0.86rem;
+  font-weight: 700;
+}
+
+.login-modal-form label:first-child span::before,
+.login-modal-form label:nth-child(2) span::before {
+  content: "";
+  width: 10px;
+  height: 8px;
+  background: #4b5563;
+  border-radius: 2px;
+}
+
+.login-modal-form input {
+  width: 100%;
+  min-height: 38px;
+  padding: 8px 14px;
+  color: #263244;
+  background: #fff;
+  border: 1px solid #c9cfd6;
+  border-radius: 0;
+  font-size: 1rem;
+  -webkit-text-fill-color: #263244;
+}
+
+.login-submit-button {
+  min-height: 34px;
+  margin-top: 2px;
+  color: #fff;
+  background: #002b57;
+  border: 0;
+  border-radius: 0;
+  font-size: 0.9rem;
+  font-weight: 900;
+}
+
+.login-submit-button::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-top: 2px solid currentColor;
+  border-right: 2px solid currentColor;
+  transform: rotate(45deg);
+}
+
+.login-modal-status {
+  min-height: 18px;
+  margin: 0;
+  color: #8a3f00;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.login-modal-link {
+  display: inline;
+  padding: 0;
+  color: #0074d9;
+  background: transparent;
+  border: 0;
+  font-size: 0.86rem;
+  font-weight: 800;
+  text-decoration: underline;
+}
+
+.login-modal > .login-modal-panel > .login-modal-link {
+  display: block;
+  margin: 10px auto 18px;
+}
+
+.login-modal-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  padding-top: 18px;
+  margin-top: 14px;
+  border-top: 1px solid #e5e7eb;
+  color: #4b5563;
+  font-size: 0.82rem;
+}
+
 .cookie-consent {
   position: fixed;
   left: 0;
@@ -3446,9 +3601,18 @@ address a {
   .contact-form,
   .contact-card,
   .inquiries-panel,
-  .booking-card {
+  .booking-card,
+  .login-modal-panel {
     padding: 22px;
     border-radius: 18px;
+  }
+
+  .login-modal-panel {
+    border-radius: 4px;
+  }
+
+  .login-modal-logo {
+    height: 94px;
   }
 
   .hero-actions,

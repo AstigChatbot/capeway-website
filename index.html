@@ -169,10 +169,10 @@
         <a href="#news">News</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
-        <a class="login-link login-link-menu" href="https://script.google.com/macros/s/AKfycbwhMgdV9eVMkcKvfGoxqQrgjKzDheOX8qM8hOu78v_H20OCd8vfGrcn2QDZt9Cc-cRY/exec" target="_blank" rel="noopener">LOGIN</a>
+        <a class="login-link login-link-menu" href="#login" data-login-open>LOGIN</a>
       </nav>
 
-      <a class="login-link nav-login" href="https://script.google.com/macros/s/AKfycbwhMgdV9eVMkcKvfGoxqQrgjKzDheOX8qM8hOu78v_H20OCd8vfGrcn2QDZt9Cc-cRY/exec" target="_blank" rel="noopener">LOGIN</a>
+      <a class="login-link nav-login" href="#login" data-login-open>LOGIN</a>
       <a class="btn btn-primary nav-cta" href="#reservation-request">Reservation</a>
     </div>
   </header>
@@ -1087,6 +1087,39 @@
   <div class="reservation-modal" id="reservationModal" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Reservation request form">
     <button class="reservation-modal-close" id="reservationModalClose" type="button" aria-label="Close reservation form">&times;</button>
     <div class="reservation-modal-panel" id="reservationModalPanel"></div>
+  </div>
+
+  <div class="login-modal" id="loginModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="loginModalTitle">
+    <div class="login-modal-panel">
+      <button class="login-modal-close" id="loginModalClose" type="button" aria-label="Close login">&times;</button>
+      <img class="login-modal-logo" src="assets/images/capeway-logo-inn-suites.webp" alt="Capeway Inn logo" width="1672" height="941" decoding="async">
+      <h2 id="loginModalTitle" class="sr-only">Capeway Inn Login</h2>
+
+      <form class="login-modal-form" id="loginModalForm">
+        <label>
+          <span>Email</span>
+          <input type="email" id="loginEmail" name="email" placeholder="Enter email" autocomplete="email" required>
+        </label>
+
+        <label>
+          <span>Password</span>
+          <input type="password" id="loginPassword" name="password" placeholder="Enter password" autocomplete="current-password" required>
+        </label>
+
+        <button class="login-submit-button" type="submit">Login</button>
+        <p class="login-modal-status" id="loginModalStatus" aria-live="polite"></p>
+      </form>
+
+      <button class="login-modal-link" type="button" data-login-action="forgot">Forgot Password?</button>
+      <div class="login-modal-row">
+        <span>Don't have an account?</span>
+        <button class="login-modal-link" type="button" data-login-action="create">Create Account</button>
+      </div>
+      <div class="login-modal-row">
+        <span>Want to explore first?</span>
+        <button class="login-modal-link" type="button" data-login-close>Back to Website</button>
+      </div>
+    </div>
   </div>
 
   <section class="cookie-consent" id="cookieConsent" aria-label="Cookie consent" hidden>
